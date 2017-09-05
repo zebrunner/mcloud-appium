@@ -5,6 +5,4 @@
   vars_files:
     - defaults/main.yml
   roles:
-    - appium
-    - docker
     - devices

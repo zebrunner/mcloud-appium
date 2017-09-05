@@ -1,3 +1,20 @@
 ---
 devices:
-   - id: 0123456789
+  - id: ZX1G22B3M6
+    name: Motorola_Nexus_6
+    adb_port: 5038
+  - id: 410053d1c8c59191
+    name: Samsung_Galaxy_Note_4
+    adb_port: 5039
+  - id: 05157df5e2c1cc2c
+    name: Samsung_Galaxy_S6  
+    adb_port: 5040 
+  - id: ce0217124acd220405
+    name: Samsung_Galaxy_S7
+    adb_port: 5041
+  - id: e5a186e407c81de5
+    name: Samsung_Galaxy_TAB4_10
+    adb_port: 5042
+  - id: 5210ece7427bb3fb
+    name: Samsung_Galaxy_A7
+    adb_port: 5043

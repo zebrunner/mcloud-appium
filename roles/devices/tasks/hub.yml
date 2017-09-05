@@ -2,6 +2,6 @@
 
 - name: Start a Selenium Hub container
   docker:
-    name: seleniu-hub
-    image: selenium/hub
+    name: selenium-hub
+    image: qaprosoft/hub
     state: started

@@ -13,7 +13,6 @@ COPY files/adbkey.pub /root/.android/adbkey.pub
 COPY files/adbkey /root/.android/adbkey
 
 RUN mkdir -p /opt/apk
-RUN mkdir -p /var/lib/jenkins/workspace
 
 RUN dpkg --add-architecture i386 \
     && apt-get update && apt-get install -y \

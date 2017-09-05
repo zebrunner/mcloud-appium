@@ -37,4 +37,4 @@ grid_router_users:
   - { login: user1, password: user1 }
   - { login: user2, password: user2 }
 
-selenium_hub_port: 4443
+selenium_hub_port: 4444

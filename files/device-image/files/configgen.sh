@@ -57,30 +57,38 @@ else
 fi
 
 # current host
-HOST=`hostname`
+HOST=`awk 'END{print $1}' /etc/hosts`
 
 cat << EndOfMessage
 {
-    "capabilities": [{
-        "browserName": "${DEVICETYPE}",
-        "version": "${ANDROID_VERSION}",
-        "maxInstances": 1,
-        "platform": "ANDROID",
-        "abi": "${ABI}",
-        "displaySize": ${DISPLAYSIZE},
-        "hardwareButtons": ${HARDWAREBUTTONS}
-    }],
-    "configuration": {
-        "proxy": "ru.yandex.qatools.selenium.proxy.WatchdogProxy",
-        "cleanUpCycle": 2000,
-        "timeout": 90000,
-        "maxSession": 1,
-        "port": ${PORT},
-        "host": "${HOST}",
-        "register": true,
-        "registerCycle": 5000,
-        "hubPort": ${HUB_PORT},
-        "hubHost": "localhost"
-    }
+  "capabilities":
+      [
+        {
+          "browserName": "${DEVICENAME}",
+          "version":"${ANDROID_VERSION}",
+          "maxInstances": 1,
+          "platform":"ANDROID",
+	  "deviceName": "${DEVICENAME}",
+          "platformName":"ANDROID",
+          "platformVersion":"${ANDROID_VERSION}",
+	  "udid": "${DEVICEUDID}",
+	  "adb_port": ${ADB_PORT}
+        }
+      ],
+  "configuration":
+  {
+    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "url":"http://${HOST}:${PORT}/wd/hub",
+    "port": ${PORT},
+    "host": "${HOST}",
+    "hubPort": ${HUB_PORT},
+    "hubHost": "${HUB_PORT_4444_TCP_ADDR}",
+    "maxSession": 1,
+    "register": true,
+    "registerCycle": 5000,
+    "cleanUpCycle": 5000,
+    "timeout": 60,
+    "browserTimeout": 60
+  }
 }
 EndOfMessage
