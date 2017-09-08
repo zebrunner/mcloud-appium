@@ -1,12 +1,10 @@
 #!/bin/bash
 
 DOCKER_IMAGE_ID=`docker images | grep 'appium-device' | awk '{print($1)}'`
-#CONTAINERS=( `docker ps -a | grep device | sed 's/^.*\-\(.*\)$/\1/g'`)
-CONTAINERS=( `docker ps --format '{{.Names}}' | grep device | cut -d '-' -f 2-`)
+CONTAINERS=( `docker ps --format '\{\{.Names\}\}' | grep device | cut -d '-' -f 2-` )
 CONNECTED_DEVICES=( `ls /dev/ | grep device | cut -d '-' -f 2-` )
 echo ACTION: $ACTION
 
-#CONNECTED_DEVICES=( `ls /dev/ | grep device | sed 's/^.*\-\(.*\)$/\1/g'` )
 
 function delete_container () {
     local udid=$1
@@ -22,8 +20,6 @@ function create_container () {
     local device_adb_port=`echo $1 | cut -d '-' -f 3`
     local stf_min_port=`echo $1 | cut -d '-' -f 4`
     local stf_max_port=`echo $1 | cut -d '-' -f 5`
-    echo stf_min_port: $stf_min_port
-    echo stf_max_port: $stf_max_port
     local symlink=/dev/device-$udid
     local port=`/usr/local/bin/device2port $udid`
     docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011  \
@@ -74,7 +70,6 @@ then
 elif [[ $ACTION = "remove" ]]
 then
     sleep 5
-#    CONNECTED_DEVICES_ORIG=( `ls /dev/ | grep device | sed 's/^.*\-\(.*\)$/\1/g'` )
     CONNECTED_DEVICES=( `ls /dev/ | grep device | cut -d '-' -f 2-` )
     for container in "${CONTAINERS[@]}"
     do
@@ -85,7 +80,7 @@ then
 	    echo verifying device: $device
             if [[ $device = $container ]]
             then
-		echo $device still alive... 
+		echo $device still alive
                 present=1
             fi
         done

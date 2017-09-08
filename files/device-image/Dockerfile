@@ -23,10 +23,12 @@ WORKDIR /app
 #EXPOSE 3000
 ############################################
 RUN mkdir -p /opt/stf
+RUN mkdir -p /opt/certs
 
 COPY files/configgen.sh /opt/configgen.sh
 COPY files/adbkey.pub /root/.android/adbkey.pub
 COPY files/adbkey /root/.android/adbkey
+COPY files/certs/AddTrustExternalCARoot.crt /opt/certs
 
 # Copy recursively files content including app source.
 COPY files /opt/
