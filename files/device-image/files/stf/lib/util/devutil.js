@@ -119,16 +119,25 @@ devutil.makeIdentity = function(serial, properties) {
   }
 
  // update model name for human readavle values based on QAPROSOFT cloud
-  var models = {"ZX1G22B3M6":"Nexus_6", "05157df5e2c1cc2c":"Galaxy_S6", "e5a186e407c81de5":"Galaxy_Tab_4",
-         "ce0217124acd220405":"Samsung_Galaxy_S7", "410053d1c8c59191":"Galaxy_Note_4"};
+/*  var models = {"ZX1G22B3M6":"Motorola_Nexus_6", "05157df5e2c1cc2c":"Samsung_Galaxy_S6", "e5a186e407c81de5":"Samsung_Galaxy_Tab_4",
+         "ce0217124acd220405":"Samsung_Galaxy_S7", "410053d1c8c59191":"Samsung_Galaxy_Note_4"};
+*/
+  var device_udid = process.env.DEVICEUDID
+  var device_name = process.env.DEVICENAME
+  console.log("Attacted device udid: " + device_udid + "; name: " + device_name)
 
-  if (models[serial] != null) {
+
+  if (serial == device_udid) {
+    model = device_name
+  }
+
+/*  if (models[serial] != null) {
     console.log('PROSOFT: Updating model name from "%s" to "%s" for device "%s"', model, models[serial], serial);  
     model = models[serial]
   } else {
         console.log('PROSOFT: Undefined serial "%s" provided for model "%s"! Contact to vdelendik@qaprosoft.com to fix.', serial, model )
   }
-
+*/
   // Clean up remaining model name
   // model = model.replace(/[_ ]/g, '')
   return {
