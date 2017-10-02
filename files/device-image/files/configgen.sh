@@ -77,18 +77,26 @@ cat << EndOfMessage
       ],
   "configuration":
   {
-    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "proxy": "com.qaprosoft.carina.grid.MobileRemoteProxy",
     "url":"http://${HOST}:${PORT}/wd/hub",
     "port": ${PORT},
     "host": "${HOST}",
-    "hubPort": ${HUB_PORT},
-    "hubHost": "${HUB_PORT_4444_TCP_ADDR}",
-    "maxSession": 1,
+    "hubPort": 4445,
+    "hubHost": "smule.qaprosoft.com",
     "register": true,
     "registerCycle": 5000,
     "cleanUpCycle": 5000,
     "timeout": 60,
-    "browserTimeout": 60
+    "browserTimeout": 60,
+    "nodeStatusCheckTimeout": 5000,
+    "nodePolling": 5000,
+    "role": "node",
+    "unregisterIfStillDownAfter": 60000,
+    "downPollingLimit": 2,
+    "debug": true,
+    "servlets" : [],
+    "withoutServlets": [],
+    "custom": {}
   }
 }
 EndOfMessage

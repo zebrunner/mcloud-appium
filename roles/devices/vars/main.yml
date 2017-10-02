@@ -30,3 +30,8 @@ devices:
     adb_port: 5043
     min_port: 7451
     max_port: 7460
+  - id: 4b13656d1d2c6200
+    name: Samsung_Grand_Prime
+    adb_port: 5044
+    min_port: 7461
+    max_port: 7470
