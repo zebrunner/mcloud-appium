@@ -23,14 +23,10 @@ WORKDIR /app
 #EXPOSE 3000
 ############################################
 RUN mkdir -p /opt/stf
-RUN mkdir -p /opt/certs
-RUN mkdir -p /opt/grid
 
 COPY files/configgen.sh /opt/configgen.sh
 COPY files/adbkey.pub /root/.android/adbkey.pub
 COPY files/adbkey /root/.android/adbkey
-COPY files/certs/AddTrustExternalCARoot.crt /opt/certs
-COPY files/grid/carina-grid-1.0-SNAPSHOT-jar-with-dependencies.jar /opt/grid
 
 # Copy recursively files content including app source.
 COPY files /opt/
