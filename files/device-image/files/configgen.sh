@@ -104,7 +104,7 @@ cat << EndOfMessage
     "servlets" : [],
     "withoutServlets": [],
     "custom": {},
-    "automationName": ${AUTOMATION_NAME}
+    "automationName": "${AUTOMATION_NAME}"
   }
 }
 EndOfMessage
