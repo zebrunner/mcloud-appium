@@ -56,6 +56,13 @@ else
     DISPLAYSIZE=7
 fi
 
+if [[ "${ANDROID_VERSION}" == 7* ]] || [[ "${ANDROID_VERSION}" == 8*  ]]
+then
+    AUTOMATION_NAME = "uiautomator2"
+else
+    AUTOMATION_NAME = "Appium"
+fi
+
 # current host
 HOST=`awk 'END{print $1}' /etc/hosts`
 
@@ -96,7 +103,8 @@ cat << EndOfMessage
     "debug": true,
     "servlets" : [],
     "withoutServlets": [],
-    "custom": {}
+    "custom": {},
+    "automationName": ${AUTOMATION_NAME}
   }
 }
 EndOfMessage
