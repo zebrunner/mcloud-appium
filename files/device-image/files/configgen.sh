@@ -76,6 +76,7 @@ cat << EndOfMessage
           "maxInstances": 1,
           "platform":"ANDROID",
 	  "deviceName": "${DEVICENAME}",
+	  "deviceType": "${DEVICETYPE}",
           "platformName":"ANDROID",
           "platformVersion":"${ANDROID_VERSION}",
 	  "udid": "${DEVICEUDID}",
