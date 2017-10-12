@@ -56,6 +56,12 @@ else
     DISPLAYSIZE=7
 fi
 
+if [[ ${ANDROID_VERSION} == 7* ]] || [[ ${ANDROID_VERSION} == 8*  ]]
+then
+    export AUTOMATION_NAME='uiautomator2'
+else
+    export AUTOMATION_NAME='Appium'
+fi
 
 # current host
 HOST=`awk 'END{print $1}' /etc/hosts`
@@ -73,8 +79,9 @@ cat << EndOfMessage
 	        "deviceType": "${DEVICETYPE}",
           "platformName":"ANDROID",
           "platformVersion":"${ANDROID_VERSION}",
-	  "udid": "${DEVICEUDID}",
-	  "adb_port": ${ADB_PORT}
+	        "udid": "${DEVICEUDID}",
+	        "adb_port": ${ADB_PORT},
+          "automationName": "${AUTOMATION_NAME}"
         }
       ],
   "configuration":
@@ -98,8 +105,7 @@ cat << EndOfMessage
     "debug": true,
     "servlets" : [],
     "withoutServlets": [],
-    "custom": {},
-    "automationName": "${AUTOMATION_NAME}"
+    "custom": {}
   }
 }
 EndOfMessage

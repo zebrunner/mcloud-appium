@@ -1,25 +1,7 @@
-#!/bin/sh
-
-# Get AUTOMATION_NAME according to Android version
-unauthorized=true
-
-while [[ $unauthorized ]]
-do
-    sleep 1
-    unauthorized=`adb devices | grep unauthorized`
-done
-
-ANDROID_VERSION=`adb shell getprop | grep ro.build.version.release |  sed 's/^.*:.*\[\(.*\)\].*$/\1/g'`
-if [[ ${ANDROID_VERSION} == 7* ]] || [[ ${ANDROID_VERSION} == 8*  ]]
-then
-    AUTOMATION_NAME='uiautomator2'
-else
-    AUTOMATION_NAME='Appium'
-fi
-# ------------------------------------------------
+#!/bin/bash
 
 ln -s /usr/lib/jvm/java-8-openjdk-amd64/bin/java /usr/bin/java \
-    & /opt/configgen.sh > /opt/nodeconfig.json \
+    & . /opt/configgen.sh > /opt/nodeconfig.json \
     & node /opt/appium/ -p $PORT --log-timestamp --session-override --udid $DEVICEUDID \
            --nodeconfig /opt/nodeconfig.json --automation-name $AUTOMATION_NAME \
     & stf provider --name "$DEVICENAME-container" --min-port=$MIN_PORT --max-port=$MAX_PORT \
