@@ -58,9 +58,9 @@ fi
 
 if [[ ${ANDROID_VERSION} == 7* ]] || [[ ${ANDROID_VERSION} == 8*  ]]
 then
-    AUTOMATION_NAME='uiautomator2'
+    export AUTOMATION_NAME='uiautomator2'
 else
-    AUTOMATION_NAME='Appium'
+    export AUTOMATION_NAME='Appium'
 fi
 
 # current host
