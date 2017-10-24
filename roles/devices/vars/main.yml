@@ -1,42 +1,16 @@
 ---
+stf_private_host: <private_host>
+stf_public_host: <public_host>
+stf_tcp_sub_port: 7114
+stf_tcp_pub_port: 7116
 devices:
-  - id: ZX1G22B3M6
+  - id: ZX1G22B3GG
     name: Motorola_Nexus_6
     adb_port: 5038
     min_port: 7401
     max_port: 7410
-  - id: 410053d1c8c59191
+  - id: 410053d1c8c59555
     name: Samsung_Galaxy_Note_4
     adb_port: 5039
     min_port: 7411
     max_port: 7420
-  - id: 05157df5e2c1cc2c
-    name: Samsung_Galaxy_S6  
-    adb_port: 5040 
-    min_port: 7421
-    max_port: 7430
-  - id: ce0217124acd220405
-    name: Samsung_Galaxy_S7
-    adb_port: 5041
-    min_port: 7431
-    max_port: 7440
-  - id: e5a186e407c81de5
-    name: Samsung_Galaxy_TAB4_10
-    adb_port: 5042
-    min_port: 7441
-    max_port: 7450
-  - id: 5210ece7427bb3fb
-    name: Samsung_Galaxy_A7
-    adb_port: 5043
-    min_port: 7451
-    max_port: 7460
-  - id: 4b13656d1d2c6200
-    name: Samsung_Grand_Prime
-    adb_port: 5044
-    min_port: 7461
-    max_port: 7470
-  - id: ZX1G5246VR
-    name: Motorola_Nexus_6
-    adb_port: 5045
-    min_port: 7471
-    max_port: 7480

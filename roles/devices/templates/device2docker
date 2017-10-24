@@ -32,6 +32,8 @@ function create_container () {
 	-p $device_adb_port:5037 --link selenium-hub:hub \
 	-p $stf_min_port-$stf_max_port:$stf_min_port-$stf_max_port \
 	-e MIN_PORT=$stf_min_port -e MAX_PORT=$stf_max_port \
+  -e STF_PRIVATE_HOST={{ stf_private_host }} -e STF_PUBLIC_HOST={{ stf_public_host }} \
+  -e STF_TCP_SUB_PORT={{ stf_tcp_sub_port }} -e STF_TCP_PUB_PORT={{ stf_tcp_pub_port }} \
         $DOCKER_IMAGE_ID || echo 'already created'
 }
 
