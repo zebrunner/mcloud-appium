@@ -30,7 +30,6 @@ COPY files/adbkey /root/.android/adbkey
 
 # Copy recursively files content including app source.
 COPY files /opt/
-RUN git clone https://github.com/qaprosoft/stf.git /opt/stf
 
 RUN mkdir -p /opt/apk
 RUN mkdir -p /var/lib/jenkins/workspace
@@ -71,6 +70,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     && apt-get clean \
     && rm -rf /var/cache/apt/* /var/lib/apt/lists/* \
 
+# Clone STF
+RUN git clone https://github.com/qaprosoft/stf.git /opt/stf
+
 # Reload cache after add location of graphic libraries
     && ldconfig -v \
     && chmod +x /opt/configgen.sh
@@ -102,4 +104,3 @@ USER root
 
 
 CMD bash /opt/start_all.sh
-
