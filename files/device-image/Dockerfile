@@ -30,6 +30,7 @@ COPY files/adbkey /root/.android/adbkey
 
 # Copy recursively files content including app source.
 COPY files /opt/
+RUN git clone https://github.com/qaprosoft/stf.git /opt/stf
 
 RUN mkdir -p /opt/apk
 RUN mkdir -p /var/lib/jenkins/workspace
@@ -100,5 +101,5 @@ RUN set -x && \
 USER root
 
 
-CMD sh /opt/start_all.sh
+CMD bash /opt/start_all.sh
 

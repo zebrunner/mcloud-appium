@@ -75,12 +75,12 @@ cat << EndOfMessage
           "version":"${ANDROID_VERSION}",
           "maxInstances": 1,
           "platform":"ANDROID",
-	        "deviceName": "${DEVICENAME}",
-	        "deviceType": "${DEVICETYPE}",
+          "deviceName": "${DEVICENAME}",
+	  "deviceType": "${DEVICETYPE}",
           "platformName":"ANDROID",
           "platformVersion":"${ANDROID_VERSION}",
-	        "udid": "${DEVICEUDID}",
-	        "adb_port": ${ADB_PORT},
+	  "udid": "${DEVICEUDID}",
+	  "adb_port": ${ADB_PORT},
           "automationName": "${AUTOMATION_NAME}"
         }
       ],

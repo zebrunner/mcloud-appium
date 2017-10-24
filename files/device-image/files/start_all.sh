@@ -1,7 +1,9 @@
 #!/bin/bash
 
+. /opt/configgen.sh
+
 ln -s /usr/lib/jvm/java-8-openjdk-amd64/bin/java /usr/bin/java \
-    & . /opt/configgen.sh > /opt/nodeconfig.json \
+    & /opt/configgen.sh > /opt/nodeconfig.json \
     & node /opt/appium/ -p $PORT --log-timestamp --session-override --udid $DEVICEUDID \
            --nodeconfig /opt/nodeconfig.json --automation-name $AUTOMATION_NAME \
     & stf provider --name "$DEVICENAME-container" --min-port=$MIN_PORT --max-port=$MAX_PORT \

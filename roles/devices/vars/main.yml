@@ -35,3 +35,8 @@ devices:
     adb_port: 5044
     min_port: 7461
     max_port: 7470
+  - id: ZX1G5246VR
+    name: Motorola_Nexus_6
+    adb_port: 5045
+    min_port: 7471
+    max_port: 7480
