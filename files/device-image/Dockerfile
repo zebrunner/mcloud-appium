@@ -70,12 +70,12 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     && apt-get clean \
     && rm -rf /var/cache/apt/* /var/lib/apt/lists/* \
 
-# Clone STF
-RUN git clone https://github.com/qaprosoft/stf.git /opt/stf
-
 # Reload cache after add location of graphic libraries
     && ldconfig -v \
     && chmod +x /opt/configgen.sh
+
+# Clone STF
+RUN git clone https://github.com/qaprosoft/stf.git /opt/stf
 
 # Give permissions to our build user.
 RUN chown -R stf-build:stf-build /opt /app
