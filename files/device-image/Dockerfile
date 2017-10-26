@@ -22,7 +22,7 @@ WORKDIR /app
 # Export default app port, not enough for all processes but it should do for now.
 #EXPOSE 3000
 ############################################
-RUN mkdir -p /opt/stf
+#RUN mkdir -p /opt/stf
 
 COPY files/configgen.sh /opt/configgen.sh
 COPY files/adbkey.pub /root/.android/adbkey.pub
@@ -75,7 +75,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     && chmod +x /opt/configgen.sh
 
 # Clone STF
-RUN git clone https://github.com/qaprosoft/stf.git /opt/stf
+RUN cd /opt
+RUN git clone https://github.com/qaprosoft/stf.git
 
 # Give permissions to our build user.
 RUN chown -R stf-build:stf-build /opt /app
