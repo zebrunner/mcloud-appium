@@ -6,5 +6,3 @@
 - name: Configurate udev
   include: udev.yml
 
-- name: Start selenum hub
-  include: hub.yml

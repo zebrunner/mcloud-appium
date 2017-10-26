@@ -9,8 +9,8 @@ echo ACTION: $ACTION
 function delete_container () {
     local udid=$1
     local container=`docker ps -a | grep $udid | sed 's/^\([a-z0-9]*\).*$/\1/g'`
-    docker stop $container || echo 'can not stop container'
-    docker rm $container || echo 'already deleted'
+#    docker stop $container || echo 'can not stop container'
+    docker rm $container -f || echo 'already deleted'
 }
 
 function create_container () {
@@ -22,18 +22,20 @@ function create_container () {
     local stf_max_port=`echo $1 | cut -d '-' -f 5`
     local symlink=/dev/device-$udid
     local port=`/usr/local/bin/device2port $udid`
-    docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011  \
+    docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net=infrastructurecomposer_default \
         -v /usr/lib/jvm:/usr/lib/jvm \
-        -v /opt/android-sdk-linux:/opt/android-sdk-linux \
-        -v /usr/local/lib/node_modules/appium:/opt/appium -v /opt/apk:/opt/apk \
+        -v {{ android_sdk_install_location }}:{{ android_sdk_install_location }} \
+	-v {{ appium_install_location }}/node_modules/appium:/opt/appium \
+	-v /opt/apk:/opt/apk \
 	-v /var/lib/jenkins/workspace:/var/lib/jenkins/workspace \
-        -e ANDROID_HOME=/opt/android-sdk-linux -e DEVICENAME=$device_name -e DEVICEUDID=$device_udid \
+        -e ANDROID_HOME={{ android_sdk_install_location }} -e DEVICENAME=$device_name -e DEVICEUDID=$device_udid \
 	-e PORT=$port -e ADB_PORT=$device_adb_port -e JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre \
-	-p $device_adb_port:5037 --link selenium-hub:hub \
+	-p $device_adb_port:5037 \
 	-p $stf_min_port-$stf_max_port:$stf_min_port-$stf_max_port \
 	-e MIN_PORT=$stf_min_port -e MAX_PORT=$stf_max_port \
-  -e STF_PRIVATE_HOST={{ stf_private_host }} -e STF_PUBLIC_HOST={{ stf_public_host }} \
-  -e STF_TCP_SUB_PORT={{ stf_tcp_sub_port }} -e STF_TCP_PUB_PORT={{ stf_tcp_pub_port }} \
+	-e STF_PRIVATE_HOST={{ stf_private_host }} -e STF_PUBLIC_HOST={{ stf_public_host }} \
+	-e STF_TCP_SUB_PORT={{ stf_tcp_sub_port }} -e STF_TCP_PUB_PORT={{ stf_tcp_pub_port }} \
+	-e SELENIUM_HUB_HOST={{ selenium_hub_host }} -e SELENIUM_HUB_PORT={{ selenium_hub_port }} \
         $DOCKER_IMAGE_ID || echo 'already created'
 }
 

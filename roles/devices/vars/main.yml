@@ -1,16 +1,19 @@
 ---
-stf_private_host: <private_host>
-stf_public_host: <public_host>
-stf_tcp_sub_port: 7114
-stf_tcp_pub_port: 7116
+stf_private_host: 10.75.103.84
+stf_public_host: 10.75.103.84
+stf_tcp_sub_port: 7250
+stf_tcp_pub_port: 7270
+selenium_hub_host: 10.75.103.84
+selenium_hub_port: 4444
+
 devices:
-  - id: ZX1G22B3GG
-    name: Motorola_Nexus_6
+  - id: 84B5T15A10012419
+    name: Google_Nexus_6P
     adb_port: 5038
     min_port: 7401
     max_port: 7410
-  - id: 410053d1c8c59555
-    name: Samsung_Galaxy_Note_4
+  - id: 0a677e43
+    name: Google_Nexus_7
     adb_port: 5039
     min_port: 7411
     max_port: 7420
