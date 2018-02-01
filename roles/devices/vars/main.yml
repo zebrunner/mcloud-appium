@@ -114,16 +114,16 @@ devices:
     adb_port: 5055
     min_port: 7571
     max_port: 7580
-    proxy_port: 9016
+    proxy_port: 9017
   - id: 5200649f4909a42d
     name: Samsung_Galaxy_A5
     adb_port: 5056
     min_port: 7581
     max_port: 7590
-    proxy_port: 9017
+    proxy_port: 9018
   - id: ad0816032029551421
     name: Samsung_Galaxy_S7_Edge
     adb_port: 5057
     min_port: 7591
     max_port: 7600
-    proxy_port: 9018
+    proxy_port: 9019
