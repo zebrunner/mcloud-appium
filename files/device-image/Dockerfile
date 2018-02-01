@@ -11,6 +11,7 @@ ENV DEVICENAME qwert
 ENV ADB_PORT 5037
 ENV MIN_PORT 7400
 ENV MAX_PORT 7410
+ENV PROXY_PORT 9000
 
 
 ##################### STF ##################
