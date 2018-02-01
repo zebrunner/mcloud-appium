@@ -76,8 +76,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     && chmod +x /opt/configgen.sh
 
 # Clone STF
-RUN cd /opt
-RUN git clone https://github.com/qaprosoft/stf.git
+RUN git clone https://github.com/qaprosoft/stf.git /opt/stf
 
 # Give permissions to our build user.
 RUN chown -R stf-build:stf-build /opt /app
