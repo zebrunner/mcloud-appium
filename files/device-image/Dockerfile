@@ -55,6 +55,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     unzip \
     wget \
     python build-essential  \
+    libgtk2.0-0:i386 \
+    libnss3-dev \
+    libgconf-2-4 \
 
 # Install nodejs
     && cd /tmp \
