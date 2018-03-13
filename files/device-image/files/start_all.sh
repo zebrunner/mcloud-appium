@@ -21,5 +21,22 @@ while true
     else
         echo adb service is alive.
     fi
+
+    STFPROVIDER_STATUS=$(ps -ef | grep -v "grep" | grep -c "stf provider")
+    if [ ! "$STFPROVIDER_STATUS" -eq "1" ]; then 
+      echo "stf provider is dead. reastarting container...
+      exit -1
+    else
+      echo stf provider is alive.
+    fi
+
+
+    APPIUM_STATUS=$(ps -ef | grep -v "grep" | grep -c "appium")
+    if [ ! "$APPIUM_STATUS" -eq "1" ]; then 
+      echo "appium provider is dead. reastarting container...
+      exit -1
+    else
+      echo appium is alive.
+    fi
   done
 
