@@ -122,8 +122,99 @@ devices:
     max_port: 7590
     proxy_port: 9018
   - id: ad0816032029551421
-    name: Samsung_Galaxy_S7_Edge
+    name: Samsung_Galaxy_S7_Ed
     adb_port: 5057
     min_port: 7591
     max_port: 7600
     proxy_port: 9019
+  - id: 3384d231
+    name: Lenovo_Tab4
+    adb_port: 5058
+    min_port: 7601
+    max_port: 7610
+    proxy_port: 9020
+  - id: RQ3004CE5F
+    name: Sony_Xperia_XA1
+    adb_port: 5059
+    min_port: 7611
+    max_port: 7620
+    proxy_port: 9021
+  - id: ZY2239XKHC
+    name: Moto_G4_Plus
+    adb_port: 5060
+    min_port: 7621
+    max_port: 7630
+    proxy_port: 9022
+  - id: NE1GAM47A3105862
+    name: Nokia_3
+    adb_port: 5061
+    min_port: 7631
+    max_port: 7640
+    proxy_port: 9023
+  - id: YCPNW17520000999
+    name: Honor_6X
+    adb_port: 5062
+    min_port: 7641
+    max_port: 7650
+    proxy_port: 9024
+  - id: 706c3c27d540
+    name: Xiaomi_Redmi_4A
+    adb_port: 5063
+    min_port: 7651
+    max_port: 7660
+    proxy_port: 9025
+  - id: 43eb9dad7d74
+    name: Xiaomi_Redmi_4X
+    adb_port: 5064
+    min_port: 7661
+    max_port: 7670
+    proxy_port: 9026
+  - id: 3cdfbcb9
+    name: Xiaomi_MI_MAX
+    adb_port: 5065
+    min_port: 7671
+    max_port: 7680
+    proxy_port: 9027
+  - id: 3f7f8573
+    name: OnePlus_3
+    adb_port: 5066
+    min_port: 7681
+    max_port: 7690
+    proxy_port: 9028
+  - id: 56ab5073
+    name: Samsung_Galaxy_Tab_A8 
+    adb_port: 5067
+    min_port: 7691
+    max_port: 7700
+    proxy_port: 9029
+  - id: 5200958cfe7ca437
+    name: Samsung_Galaxy_Tab_A10
+    adb_port: 5068
+    min_port: 7701
+    max_port: 7710
+    proxy_port: 9030
+  - id: 612MKBQB222PS
+    name: Meizu_M5s
+    adb_port: 5069
+    min_port: 7711
+    max_port: 7720
+    proxy_port: 9031
+  - id: d04ecc8a
+    name: Samsung_Galaxy_S4
+    adb_port: 5070
+    min_port: 7721
+    max_port: 7730
+    proxy_port: 9032
+  - id: 23eb4551
+    name: Samsung_Galaxy_S5_Mini
+    adb_port: 5071
+    min_port: 7731
+    max_port: 7740
+    proxy_port: 9033
+  - id: 988a1c424436513832
+    name: Samsung_Galaxy_S8_Plus
+    adb_port: 5072
+    min_port: 7741
+    max_port: 7750
+    proxy_port: 9034
+	
