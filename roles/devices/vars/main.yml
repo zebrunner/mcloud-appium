@@ -12,18 +12,22 @@ devices:
     adb_port: 5038
     min_port: 7401
     max_port: 7410
+    proxy_port: 9000
   - id: ad0517022ca30e92e8
     name: Samsung_Galaxy_S7_Edge
     adb_port: 5039
     min_port: 7411
     max_port: 7420
+    proxy_port: 9001
   - id: ce11171b22376e2305
     name: Samsung_Galaxy_S8
     adb_port: 5040
     min_port: 7421
     max_port: 7430
+    proxy_port: 9002
   - id: ZY3224TGS5
     name: Motorala_E4
     adb_port: 5041
     min_port: 7431
     max_port: 7440
+    proxy_port: 9003
