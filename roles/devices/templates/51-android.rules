@@ -1,4 +1,4 @@
 {% for device in devices %}
-SUBSYSTEM=="usb", ENV{ID_SERIAL_SHORT}=="{{ device.id }}", MODE="0666", SYMLINK+="device-{{ device.id }}-{{ device.name }}-{{ device.adb_port }}-{{ device.min_port }}-{{ device.max_port }}"
+SUBSYSTEM=="usb", ENV{ID_SERIAL_SHORT}=="{{ device.id }}", MODE="0666", SYMLINK+="device-{{ device.id }}-{{ device.name }}-{{ device.adb_port }}-{{ device.min_port }}-{{ device.max_port }}-{{ device.proxy_port }}"
 {% endfor %}
 SUBSYSTEM=="usb", RUN+="/usr/local/bin/device2docker"
