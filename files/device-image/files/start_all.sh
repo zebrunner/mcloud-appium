@@ -13,7 +13,15 @@ ln -s /usr/lib/jvm/java-8-openjdk-amd64/bin/java /usr/bin/java \
 
 while true
   do
-    sleep $HEARTBEAT_INTERVAL
+    counter=$HEARTBEAT_INTERVAL
+    #make sleep shorter to be able to react onto disconnected device asap
+    while ((counter--));
+    do
+        sleep 1
+        #echo "sleep 1; counter: " + $counter
+    done
+
+    #sleep $HEARTBEAT_INTERVAL
     ADB_STATUS=$(adb devices | grep -c ${DEVICEUDID})
     if [ ! "$ADB_STATUS" -eq "1" ]; then
         echo adb server is dead. restarting container...
