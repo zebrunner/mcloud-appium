@@ -102,6 +102,10 @@ RUN set -x && \
     rm -rf /var/lib/apt/lists/* ~/.node-gyp /tmp/* /var/tmp/* && \
     cd /app
 
+# Install websockify
+RUN git clone https://github.com/novnc/websockify.git /opt/websockify && \
+    cd /opt/websockify && make
+
 ## Switch to the app user.
 ##USER stf
 
