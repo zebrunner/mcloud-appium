@@ -103,7 +103,7 @@ RUN set -x && \
     cd /app
 
 # Install websockify
-RUN git clone git@github.com:novnc/websockify.git /opt/websockify && \
+RUN git clone https://github.com/novnc/websockify.git /opt/websockify && \
     cd /opt/websockify && make
 
 ## Switch to the app user.
