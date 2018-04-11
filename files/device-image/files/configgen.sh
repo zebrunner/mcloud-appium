@@ -76,12 +76,13 @@ cat << EndOfMessage
           "maxInstances": 1,
           "platform":"ANDROID",
           "deviceName": "${DEVICENAME}",
-	  "deviceType": "${DEVICETYPE}",
+	        "deviceType": "${DEVICETYPE}",
           "platformName":"ANDROID",
           "platformVersion":"${ANDROID_VERSION}",
-	  "udid": "${DEVICEUDID}",
-	  "adb_port": ${ADB_PORT},
-	  "proxy_port": ${PROXY_PORT},
+	        "udid": "${DEVICEUDID}",
+	        "adb_port": ${ADB_PORT},
+	        "proxy_port": ${PROXY_PORT},
+          "vnc": "${STF_PRIVATE_HOST}:${MAX_PORT}"
           "automationName": "${AUTOMATION_NAME}"
         }
       ],
