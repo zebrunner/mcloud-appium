@@ -20,10 +20,11 @@ function create_container () {
     local device_adb_port=`echo $1 | cut -d '-' -f 3`
     local stf_min_port=`echo $1 | cut -d '-' -f 4`
     local stf_max_port=`echo $1 | cut -d '-' -f 5`
+    local proxy_port=`echo $1 | cut -d '-' -f 6`
     local symlink=/dev/device-$udid
     local port=`/usr/local/bin/device2port $udid`
     docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net=uainfra_default \
-	--restart=always \
+	--restart always \
 	--add-host ua.qaprosoft.com:192.168.88.103 \
         -v /usr/lib/jvm:/usr/lib/jvm \
         -v {{ android_sdk_install_location }}:{{ android_sdk_install_location }} \
@@ -37,6 +38,7 @@ function create_container () {
 	-e STF_PRIVATE_HOST={{ stf_private_host }} -e STF_PUBLIC_HOST={{ stf_public_host }} \
 	-e STF_TCP_SUB_PORT={{ stf_tcp_sub_port }} -e STF_TCP_PUB_PORT={{ stf_tcp_pub_port }} \
 	-e SELENIUM_HUB_HOST={{ selenium_hub_host }} -e SELENIUM_HUB_PORT={{ selenium_hub_port }} \
+	-e PROXY_PORT=$proxy_port \
         $DOCKER_IMAGE_ID || echo 'already created'
 }
 

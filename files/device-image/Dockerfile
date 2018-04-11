@@ -11,6 +11,8 @@ ENV DEVICENAME qwert
 ENV ADB_PORT 5037
 ENV MIN_PORT 7400
 ENV MAX_PORT 7410
+ENV PROXY_PORT 9000
+ENV HEARTBEAT_INTERVAL 60
 
 
 ##################### STF ##################
@@ -55,6 +57,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     unzip \
     wget \
     python build-essential  \
+    libgtk2.0-0:i386 \
+    libnss3-dev \
+    libgconf-2-4 \
 
 # Install nodejs
     && cd /tmp \

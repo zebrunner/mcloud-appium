@@ -248,19 +248,19 @@ devices:
     max_port: 7800
     proxy_port: 9039
   - id: ZH33C2784S
-    name: Motorola_E4 
+    name: Motorola_E4
     adb_port: 5078
     min_port: 7801
     max_port: 7810
     proxy_port: 9040
-  - id: 5200dd5aec34b47b 
+  - id: 5200dd5aec34b47b
     name: Samsung_Galaxy_A3
     adb_port: 5079
     min_port: 7811
     max_port: 7820
     proxy_port: 9041
   - id: ZY223BND89
-    name: Motorola_G4 
+    name: Motorola_G4
     adb_port: 5080
     min_port: 7821
     max_port: 7830

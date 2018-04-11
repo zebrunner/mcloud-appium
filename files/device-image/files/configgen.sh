@@ -82,6 +82,7 @@ cat << EndOfMessage
           "platformVersion":"${ANDROID_VERSION}",
 	  "udid": "${DEVICEUDID}",
 	  "adb_port": ${ADB_PORT},
+	  "proxy_port": ${PROXY_PORT},
           "automationName": "${AUTOMATION_NAME}"
         }
       ],
