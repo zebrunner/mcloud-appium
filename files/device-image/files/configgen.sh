@@ -62,6 +62,7 @@ then
 else
     export AUTOMATION_NAME='Appium'
 fi
+#export AUTOMATION_NAME='uiautomator2'
 
 # current host
 HOST=`awk 'END{print $1}' /etc/hosts`
