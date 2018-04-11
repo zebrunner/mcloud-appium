@@ -82,7 +82,7 @@ cat << EndOfMessage
 	        "udid": "${DEVICEUDID}",
 	        "adb_port": ${ADB_PORT},
 	        "proxy_port": ${PROXY_PORT},
-          "vnc": "${STF_PRIVATE_HOST}:${MAX_PORT}"
+          "vnc": "${STF_PRIVATE_HOST}:${MAX_PORT}",
           "automationName": "${AUTOMATION_NAME}"
         }
       ],
