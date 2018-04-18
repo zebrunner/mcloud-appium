@@ -1,9 +1,9 @@
 ---
-stf_private_host: 10.75.8.156
+stf_private_host: automation-android.us-east-1.bamgrid.net
 stf_public_host: automation-android.us-east-1.bamgrid.net
 stf_tcp_sub_port: 7250
 stf_tcp_pub_port: 7270
-selenium_hub_host: 10.75.8.156
+selenium_hub_host: automation-android.us-east-1.bamgrid.net
 selenium_hub_port: 4444
 
 devices:
