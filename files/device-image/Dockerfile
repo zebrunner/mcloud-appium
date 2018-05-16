@@ -64,7 +64,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 # Install nodejs
     && cd /tmp \
     && wget --progress=dot:mega \
-      https://nodejs.org/dist/v6.11.2/node-v6.11.2-linux-x64.tar.xz \
+      https://nodejs.org/dist/v8.11.2/node-v8.11.2-linux-x64.tar.xz \
     && tar -xJf node-v*.tar.xz --strip-components 1 -C /usr/local \
     && rm node-v*.tar.xz  \
 
