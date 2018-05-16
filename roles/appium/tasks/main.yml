@@ -12,5 +12,5 @@
 - name: Install "Appium" node.js package.
   npm:
     name: appium
-    version: '1.7.2'
+    version: '1.8.1-beta1'
     path: "{{ appium_install_location }}"
