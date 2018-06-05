@@ -31,24 +31,24 @@ devices:
     min_port: 7431
     max_port: 7440
     proxy_port: 9003
-  - id: FA45KWM08496
-    name: One_M8
-    adb_port: 5042
-    min_port: 7441
-    max_port: 7450
-    proxy_port: 9004
+#  - id: FA45KWM08496
+#    name: One_M8
+#    adb_port: 5042
+#    min_port: 7441
+#    max_port: 7450
+#    proxy_port: 9004
   - id: c8494b28
     name: Samsung_Galaxy_Note_3
     adb_port: 5043
     min_port: 7451
     max_port: 7460
     proxy_port: 9005
-  - id: 5aa4889c
-    name: Samsung_Galaxy_S4
-    adb_port: 5044
-    min_port: 7461
-    max_port: 7470
-    proxy_port: 9006
+#  - id: 5aa4889c
+#    name: Samsung_Galaxy_S4
+#    adb_port: 5044
+#    min_port: 7461
+#    max_port: 7470
+#    proxy_port: 9006
   - id: a3a54308
     name: Samsung_Galaxy_S5
     adb_port: 5045
@@ -103,12 +103,12 @@ devices:
     min_port: 7551
     max_port: 7560
     proxy_port: 9015
-  - id: 3df57678
-    name: Samsung_Galaxy_S7_Edge
-    adb_port: 5054
-    min_port: 7561
-    max_port: 7570
-    proxy_port: 9016
+ # - id: 3df57678
+ #   name: Samsung_Galaxy_S7_Edge
+ #   adb_port: 5054
+ #   min_port: 7561
+ #   max_port: 7570
+ #   proxy_port: 9016
   - id: ce0817180bae20340b7e
     name: Samsung_Galaxy_Note_8
     adb_port: 5055
@@ -127,3 +127,9 @@ devices:
     min_port: 7611
     max_port: 7620
     proxy_port: 9019
+  - id: FA6AR0301523
+    name: Google_Pixel_Device_2
+    adb_port: 5058
+    min_port: 7621
+    max_port: 7630
+    proxy_port: 9020
