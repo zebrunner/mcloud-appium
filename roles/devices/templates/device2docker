@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_IMAGE_ID=`docker images | grep 'appium-device' | awk '{print($1)}'`
+DOCKER_IMAGE_ID=`docker images | grep 'qaprosoft/appium-device' | awk '{print($3)}'`
 CONTAINERS=( `docker ps --format '\{\{.Names\}\}' | grep device | cut -d '-' -f 2-` )
 CONNECTED_DEVICES=( `ls /dev/ | grep device | cut -d '-' -f 2-` )
 echo ACTION: $ACTION
@@ -25,7 +25,7 @@ function create_container () {
     local port=`/usr/local/bin/device2port $udid`
     docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net=uainfra_default \
 	--restart always \
-	--add-host ua.qaprosoft.com:192.168.88.103 \
+	--add-host {{ stf_public_host }}:{{ stf_private_host }} \
         -v /usr/lib/jvm:/usr/lib/jvm \
         -v {{ android_sdk_install_location }}:{{ android_sdk_install_location }} \
 	-v {{ appium_install_location }}/node_modules/appium:/opt/appium \
