@@ -11,3 +11,4 @@
 
 - name: Install "Appium" node.js package.
   command: npm install appium@{{ appium_version }} --prefix {{ appium_install_location }} --unsafe-perm true
+
