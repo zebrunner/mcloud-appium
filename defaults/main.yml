@@ -2,9 +2,14 @@
 
 android_sdk_download_location: https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
 android_sdk_install_location: /opt/android-sdk-linux
+android_build_tools: build-tools-27.0.3
 android_sdk_versions:
   - 22
   - 23
+  - 24
+  - 25
+  - 26
+  - 27
 android_emulator_skins:
   - HVGA
   - QVGA
@@ -22,12 +27,19 @@ android_device_types:
 android_device_versions:
   - 5.1.1
   - 6.0.1
+  - 6.0
+  - 6.0.1
+  - 7.0
+  - 7.1.2
+  - 8.0
+  - 8.1
 
 docker_device_image_name: appium-device
 docker_base_emulator_image_name: appium-emulator
 docker_tmp_images_path: /tmp
 
 appium_install_location: /opt/appium
+appium_version: 1.8.1
 
 selenoid_session_timeout_sec: 300
 selenoid_port: 4445
