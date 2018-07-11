@@ -6,6 +6,11 @@
     dest: /tmp/sdk.zip
     validate_certs: no
 
+#- name: Create Android SDK folder
+#  file:
+#    path: "{{ android_sdk_install_location }}"
+#    state: directory 
+  
 - name: Extract Android SDK tools
   unarchive: src=/tmp/sdk.zip dest=/opt copy=no
 
@@ -19,15 +24,15 @@
   shell: echo y | "{{ android_sdk_install_location }}"/tools/android update sdk --filter {{ item }} --no-ui -a --force
   with_items:
     - platform-tools
-    - build-tools-23.0.0
+    - "{{ android_build_tools }}"
 
 - name: Install platforms
   shell: echo y | "{{ android_sdk_install_location }}"/tools/android update sdk --filter android-{{ item }} --no-ui -a --force
   with_items: "{{ android_sdk_versions }}"
 
-- name: Install system images
-  shell: echo y | "{{ android_sdk_install_location }}"/tools/android update sdk --filter sys-img-x86-android-{{ item }} --no-ui -a --force
-  with_items: "{{ android_sdk_versions }}"
+#- name: Install system images
+#  shell: echo y | "{{ android_sdk_install_location }}"/tools/android update sdk --filter sys-img-x86-android-{{ item }} --no-ui -a --force
+#  with_items: "{{ android_sdk_versions }}"
 
 - name: Change permissions on SDK tools
   file: path={{ android_sdk_install_location }} recurse=yes mode=0755

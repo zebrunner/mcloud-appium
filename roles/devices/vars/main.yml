@@ -26,7 +26,7 @@ devices:
     max_port: 7430
     proxy_port: 9002
   - id: ZY3224TGS5
-    name: Motorala_E4
+    name: Motorola_E4
     adb_port: 5041
     min_port: 7431
     max_port: 7440
@@ -37,4 +37,3 @@ devices:
     min_port: 7441
     max_port: 7450
     proxy_port: 9004
-

@@ -72,8 +72,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     && su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' \
     && apt-get update \
     && apt-get -y install libzmq3-dev libprotobuf-dev git graphicsmagick yasm \
-    && apt-get clean \
-    && rm -rf /var/cache/apt/* /var/lib/apt/lists/* \
+#    && rm -rf /var/cache/apt/* /var/lib/apt/lists/* \
+#    && apt-get clean \
+#    && apt-get update \
 
 # Reload cache after add location of graphic libraries
     && ldconfig -v \
@@ -99,8 +100,13 @@ RUN set -x && \
     npm prune --production && \
     mv node_modules /app && \
 #    npm cache clean && \
-    rm -rf /var/lib/apt/lists/* ~/.node-gyp /tmp/* /var/tmp/* && \
+#    rm -rf /var/lib/apt/lists/* ~/.node-gyp /tmp/* /var/tmp/* && \
+    rm -rf ~/.node-gyp /tmp/* /var/tmp/* && \
     cd /app
+
+# Install websockify
+RUN git clone https://github.com/novnc/websockify.git /opt/websockify && \
+    cd /opt/websockify && make
 
 ## Switch to the app user.
 ##USER stf
