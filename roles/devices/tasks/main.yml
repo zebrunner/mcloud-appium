@@ -1,7 +1,7 @@
 ---
 
-- name: Build docker image for devices
-  include: docker-image.yml
+#- name: Build docker image for devices
+#  include: docker-image.yml
 
 - name: Configurate udev
   include: udev.yml

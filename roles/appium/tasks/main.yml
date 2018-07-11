@@ -10,7 +10,4 @@
   include: nodejs.yml
 
 - name: Install "Appium" node.js package.
-  npm:
-    name: appium
-    version: '1.7.2'
-    path: "{{ appium_install_location }}"
+  command: npm install appium@{{ appium_version }} --prefix {{ appium_install_location }} --unsafe-perm true

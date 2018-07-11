@@ -62,6 +62,7 @@ then
 else
     export AUTOMATION_NAME='Appium'
 fi
+#export AUTOMATION_NAME='uiautomator2'
 
 # current host
 HOST=`awk 'END{print $1}' /etc/hosts`
@@ -79,9 +80,10 @@ cat << EndOfMessage
 	  "deviceType": "${DEVICETYPE}",
           "platformName":"ANDROID",
           "platformVersion":"${ANDROID_VERSION}",
-	  "udid": "${DEVICEUDID}",
+          "udid": "${DEVICEUDID}",
 	  "adb_port": ${ADB_PORT},
 	  "proxy_port": ${PROXY_PORT},
+          "vnc": "wss://${STF_PUBLIC_HOST}:${MAX_PORT}/websockify",
           "automationName": "${AUTOMATION_NAME}"
         }
       ],
