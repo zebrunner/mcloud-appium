@@ -31,3 +31,10 @@ devices:
     min_port: 7431
     max_port: 7440
     proxy_port: 9003
+  - id: 1cd8b30c540b7ece 
+    name: Samsung_Galaxy_S9
+    adb_port: 5042
+    min_port: 7441
+    max_port: 7450
+    proxy_port: 9004
+
