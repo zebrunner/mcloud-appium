@@ -7,8 +7,8 @@ selenium_hub_host: 192.168.88.43
 selenium_hub_port: 4444
 
 devices:
-  - id: PL2GAR9822804910
-    name: Nokia_6_1
+  - id: 5200dd5aec34b47b
+    name: Samsung_Galaxy_A3
     adb_port: 5038
     min_port: 7401
     max_port: 7410
