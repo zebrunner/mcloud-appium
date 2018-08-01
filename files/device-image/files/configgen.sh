@@ -80,10 +80,10 @@ cat << EndOfMessage
 	  "deviceType": "${DEVICETYPE}",
           "platformName":"ANDROID",
           "platformVersion":"${ANDROID_VERSION}",
-	  "udid": "${DEVICEUDID}",
+          "udid": "${DEVICEUDID}",
 	  "adb_port": ${ADB_PORT},
 	  "proxy_port": ${PROXY_PORT},
-          "vnc": "wss://${STF_PUBLIC_HOST}:${MAX_PORT}/websockify",
+          "vnc": "${STF_PUBLIC_HOST}:${MAX_PORT}",
           "automationName": "${AUTOMATION_NAME}"
         }
       ],
