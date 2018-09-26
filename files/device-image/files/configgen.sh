@@ -83,7 +83,7 @@ cat << EndOfMessage
           "udid": "${DEVICEUDID}",
 	  "adb_port": ${ADB_PORT},
 	  "proxy_port": ${PROXY_PORT},
-          "vnc": "${STF_PUBLIC_HOST}:${MAX_PORT}",
+          "vnc": "wss://${STF_PUBLIC_HOST}:${MAX_PORT}/websockify",
           "automationName": "${AUTOMATION_NAME}"
         }
       ],
