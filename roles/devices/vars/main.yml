@@ -1,135 +1,27 @@
 ---
-stf_private_host: 10.144.206.203
-stf_public_host: automation-android-slave.us-east-1.bamgrid.net
+stf_private_host: 192.168.88.95
+stf_public_host: stage.qaprosoft.com
 stf_tcp_sub_port: 7250
 stf_tcp_pub_port: 7270
 selenium_hub_host: selenium-hub
 selenium_hub_port: 4444
 
 devices:
-  - id: 84B7N16411002791
-    name: Google_Nexus_6P
+  - id: 42009c44d068b461
+    name: Samsung_Galaxy_J3
     adb_port: 5038
     min_port: 7401
     max_port: 7410
     proxy_port: 9000
-  - id: 07c00fbc
-    name: Google_Nexus_7
+  - id: 5200e0a5e2982529
+    name: Samsung_Galaxy_J5
     adb_port: 5039
     min_port: 7411
     max_port: 7420
     proxy_port: 9001
-  - id: FA77D0301176
-    name: Google_Pixel
+  - id: 52003eafc01f25ad
+    name: Samsung_Galaxy_J7
     adb_port: 5040
     min_port: 7421
     max_port: 7430
     proxy_port: 9002
-  - id: 00f2b65a3788ceee
-    name: Google_Nexus_5X
-    adb_port: 5041
-    min_port: 7431
-    max_port: 7440
-    proxy_port: 9003
-#  - id: FA45KWM08496
-#    name: One_M8
-#    adb_port: 5042
-#    min_port: 7441
-#    max_port: 7450
-#    proxy_port: 9004
-  - id: c8494b28
-    name: Samsung_Galaxy_Note_3
-    adb_port: 5043
-    min_port: 7451
-    max_port: 7460
-    proxy_port: 9005
-#  - id: 5aa4889c
-#    name: Samsung_Galaxy_S4
-#    adb_port: 5044
-#    min_port: 7461
-#    max_port: 7470
-#    proxy_port: 9006
-  - id: a3a54308
-    name: Samsung_Galaxy_S5
-    adb_port: 5045
-    min_port: 7471
-    max_port: 7480
-    proxy_port: 9007
-  - id: 06157df6a1fbb123
-    name: Samsung_Galaxy_S6
-    adb_port: 5046
-    min_port: 7481
-    max_port: 7490
-    proxy_port: 9008
-  - id: 0285ec5a
-    name: Samsung_Galaxy_S7
-    adb_port: 5047
-    min_port: 7491
-    max_port: 7500
-    proxy_port: 9009
-  - id: HT5BEJT00427
-    name: Google_Nexus_9_6.0
-    adb_port: 5048
-    min_port: 7501
-    max_port: 7510
-    proxy_port: 9010
-  - id: HT4CSWV00400
-    name: Google_Nexus_9_7.0
-    adb_port: 5049
-    min_port: 7511
-    max_port: 7520
-    proxy_port: 9011
-  - id: HT7230202136
-    name: Google_Pixel_XL
-    adb_port: 5050
-    min_port: 7521
-    max_port: 7530
-    proxy_port: 9012
-  - id: 710KPKN0482085
-    name: Google_Pixel_XL2
-    adb_port: 5051
-    min_port: 7531
-    max_port: 7540
-    proxy_port: 9013
-  - id: b608e825
-    name: Samsung_Galaxy_Tab_S3
-    adb_port: 5052
-    min_port: 7541
-    max_port: 7550
-    proxy_port: 9014
-  - id: 9887a8445635425432
-    name: Samsung_Galaxy_S8
-    adb_port: 5053
-    min_port: 7551
-    max_port: 7560
-    proxy_port: 9015
- # - id: 3df57678
- #   name: Samsung_Galaxy_S7_Edge
- #   adb_port: 5054
- #   min_port: 7561
- #   max_port: 7570
- #   proxy_port: 9016
-  - id: ce0817180bae20340b7e
-    name: Samsung_Galaxy_Note_8
-    adb_port: 5055
-    min_port: 7571
-    max_port: 7580
-    proxy_port: 9017
-  - id: 0a677e43
-    name: Google_Nexus_7_2
-    adb_port: 5056
-    min_port: 7581
-    max_port: 7590
-    proxy_port: 9018
-  - id: HT7971A01584
-    name: Google_Pixel_2
-    adb_port: 5057
-    min_port: 7611
-    max_port: 7620
-    proxy_port: 9019
-  - id: FA6AR0301523
-    name: Google_Pixel_Device_2
-    adb_port: 5058
-    min_port: 7621
-    max_port: 7630
-    proxy_port: 9020
