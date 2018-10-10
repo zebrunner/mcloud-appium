@@ -37,3 +37,9 @@ devices:
     min_port: 7441
     max_port: 7450
     proxy_port: 9004
+  - id: ce07182788c9110804
+    name: Galaxy_S8_Redirect
+    adb_port: 5043
+    min_port: 7451
+    max_port: 7460
+    proxy_port: 9005
