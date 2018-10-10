@@ -23,7 +23,7 @@ function create_container () {
     local proxy_port=`echo $1 | cut -d '-' -f 6`
     local symlink=/dev/device-$udid
     local port=`/usr/local/bin/device2port $udid`
-    docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net=stage-infra_default \
+    docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net=nwinfra_default \
 	--restart always \
 	--add-host {{ stf_public_host }}:{{ stf_private_host }} \
         -v /usr/lib/jvm:/usr/lib/jvm \
