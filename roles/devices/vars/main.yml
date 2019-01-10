@@ -133,3 +133,51 @@ devices:
     min_port: 7621
     max_port: 7630
     proxy_port: 9020
+  - id: 464c304e42553098
+    name: Samsung_Galaxy_S9
+    adb_port: 5059
+    min_port: 7631
+    max_port: 7640
+    proxy_port: 9021
+  - id: R38K70F926B
+    name: Samsung_Galaxy_S9_Device_2
+    adb_port: 5060
+    min_port: 7641
+    max_port: 7650
+    proxy_port: 9022
+  - id: HT84A1A00663
+    name: Google_Pixel_2_Device_2
+    adb_port: 5061
+    min_port: 7651
+    max_port: 7660
+    proxy_port: 9023
+  - id: HT84A1A00509
+    name: Google_Pixel_2_Device_3
+    adb_port: 5062
+    min_port: 7661
+    max_port: 7670
+    proxy_port: 9024
+  - id: 52003e4ab4ef55d9
+    name: Samsung_Galaxy_Tab_E
+    adb_port: 5063
+    min_port: 7671
+    max_port: 7680
+    proxy_port: 9025
+  - id: 5200888cee30550d
+    name: Samsung_Galaxy_Tab_E_Device_2
+    adb_port: 5064
+    min_port: 7681
+    max_port: 7690
+    proxy_port: 9026
+  - id: VS996828a14a6
+    name: LG_V30
+    adb_port: 5065
+    min_port: 7691
+    max_port: 7700
+    proxy_port: 9027
+  - id: 265b3a8430057ece
+    name: Samsung_Galaxy_Note_9
+    adb_port: 5066
+    min_port: 7701
+    max-port: 7710
+    proxy_por: 9028
