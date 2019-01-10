@@ -180,4 +180,4 @@ devices:
     adb_port: 5066
     min_port: 7701
     max_port: 7710
-    proxy_por: 9028
+    proxy_port: 9028
