@@ -179,5 +179,5 @@ devices:
     name: Samsung_Galaxy_Note_9
     adb_port: 5066
     min_port: 7701
-    max-port: 7710
+    max_port: 7710
     proxy_por: 9028
