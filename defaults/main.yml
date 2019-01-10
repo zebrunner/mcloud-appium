@@ -38,7 +38,7 @@ docker_base_emulator_image_name: appium-emulator
 docker_tmp_images_path: /tmp
 
 appium_install_location: /opt/appium
-appium_version: 1.9.0
+appium_version: 1.9.1
 
 selenoid_session_timeout_sec: 300
 selenoid_port: 4445
