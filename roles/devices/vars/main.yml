@@ -67,12 +67,12 @@ devices:
     min_port: 7491
     max_port: 7500
     proxy_port: 9009
-  - id: HT5BEJT00427
-    name: Google_Nexus_9_6.0
-    adb_port: 5048
-    min_port: 7501
-    max_port: 7510
-    proxy_port: 9010
+ # - id: HT5BEJT00427
+ #   name: Google_Nexus_9_6.0
+ #   adb_port: 5048
+ #   min_port: 7501
+ #   max_port: 7510
+ #   proxy_port: 9010
   - id: HT4CSWV00400
     name: Google_Nexus_9_7.0
     adb_port: 5049
@@ -115,12 +115,12 @@ devices:
     min_port: 7571
     max_port: 7580
     proxy_port: 9017
-  - id: 0a677e43
-    name: Google_Nexus_7_2
-    adb_port: 5056
-    min_port: 7581
-    max_port: 7590
-    proxy_port: 9018
+#  - id: 0a677e43
+#    name: Google_Nexus_7_2
+#    adb_port: 5056
+#    min_port: 7581
+#    max_port: 7590
+#    proxy_port: 9018
   - id: HT7971A01584
     name: Google_Pixel_2
     adb_port: 5057
