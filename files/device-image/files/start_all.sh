@@ -1,6 +1,9 @@
 #!/bin/bash
 
+#execute to print info in stdout
 . /opt/configgen.sh
+# generate json file
+/opt/configgen.sh > /opt/nodeconfig.json
 
 WEBSOCKIFY_CMD="/opt/websockify/run ${MAX_PORT} :5900"
 SOCKET_PROTOCOL=ws
@@ -13,7 +16,6 @@ if [ -f /opt/nginx/ssl/ssl.crt ] && [ /opt/nginx/ssl/ssl.key ]; then
 fi
 
 ln -s /usr/lib/jvm/java-8-openjdk-amd64/bin/java /usr/bin/java \
-    & /opt/configgen.sh > /opt/nodeconfig.json \
     & node /opt/appium/ -p $PORT --log-timestamp --session-override --udid $DEVICEUDID \
            --nodeconfig /opt/nodeconfig.json --automation-name $AUTOMATION_NAME \
     & $WEBSOCKIFY_CMD \
