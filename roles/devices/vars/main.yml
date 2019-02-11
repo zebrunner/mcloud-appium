@@ -25,3 +25,27 @@ devices:
     min_port: 7421
     max_port: 7430
     proxy_port: 9002
+  - id: 5200649f4909a42d
+    name: Samsung_Galaxy_A5
+    adb_port: 5041
+    min_port: 7431
+    max_port: 7440
+    proxy_port: 9003
+  - id: ce0217124acd220405
+    name: Samsung_Galaxy_S7
+    adb_port: 5042
+    min_port: 7441
+    max_port: 7450
+    proxy_port: 9004
+  - id: 988a1c424436513832
+    name: Samsung_Galaxy_S8_Plus
+    adb_port: 5043
+    min_port: 7451
+    max_port: 7460
+    proxy_port: 9005
+  - id: RQ3004CE5F
+    name: Sony_Xperia_XA1
+    adb_port: 5044
+    min_port: 7461
+    max_port: 7470
+    proxy_port: 9006 
