@@ -8,12 +8,6 @@ do
     unauthorized=`adb devices | grep unauthorized`
 done
 
-# uninstall appium specific
-adb uninstall io.appium.uiautomator2.server.test
-adb uninstall io.appium.uiautomator2.server
-adb uninstall io.appium.settings
-adb uninstall io.appium.unlock
-
 # device type
 isTablet=`adb shell getprop ro.build.characteristics | grep tablet`
 
