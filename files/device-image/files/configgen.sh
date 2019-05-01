@@ -9,10 +9,10 @@ do
 done
 
 # uninstall appium specific
-uninstallUiAutomator1=`adb uninstall io.appium.uiautomator2.server.test`
-uninstallUiAutomator2=`adb uninstall io.appium.uiautomator2.server`
-uninstallAppiumSettings=`adb uninstall io.appium.settings`
-uninstallAppiumUnlock=`adb uninstall io.appium.unlock`
+adb uninstall io.appium.uiautomator2.server.test
+adb uninstall io.appium.uiautomator2.server
+adb uninstall io.appium.settings
+adb uninstall io.appium.unlock
 
 # device type
 isTablet=`adb shell getprop ro.build.characteristics | grep tablet`
