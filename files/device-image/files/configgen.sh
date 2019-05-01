@@ -8,6 +8,12 @@ do
     unauthorized=`adb devices | grep unauthorized`
 done
 
+# uninstall appium specific
+uninstallUiAutomator1=`adb uninstall io.appium.uiautomator2.server.test`
+uninstallUiAutomator2=`adb uninstall io.appium.uiautomator2.server`
+uninstallAppiumSettings=`adb uninstall io.appium.settings`
+uninstallAppiumUnlock=`adb uninstall io.appium.unlock`
+
 # device type
 isTablet=`adb shell getprop ro.build.characteristics | grep tablet`
 
@@ -35,7 +41,7 @@ else
     HARDWAREBUTTONS=true
 fi
 
-if [[ $isTablet ]]
+if [[ $isTablet && ${sum} -ge 60 ]]
 then
     DEVICETYPE='Tablet'
 else
@@ -77,12 +83,12 @@ cat << EndOfMessage
           "maxInstances": 1,
           "platform":"ANDROID",
           "deviceName": "${DEVICENAME}",
-	  "deviceType": "${DEVICETYPE}",
+	      "deviceType": "${DEVICETYPE}",
           "platformName":"ANDROID",
           "platformVersion":"${ANDROID_VERSION}",
           "udid": "${DEVICEUDID}",
-	  "adb_port": ${ADB_PORT},
-	  "proxy_port": ${PROXY_PORT},
+	      "adb_port": ${ADB_PORT},
+	      "proxy_port": ${PROXY_PORT},
           "vnc": "${STF_PUBLIC_HOST}:${MAX_PORT}",
           "automationName": "${AUTOMATION_NAME}"
         }
