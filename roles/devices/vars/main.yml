@@ -43,3 +43,21 @@ devices:
     min_port: 7451
     max_port: 7460
     proxy_port: 9005
+  - id: FA74SBN02369
+    name: HTC_10
+    adb_port: 5044
+    min_port: 7461
+    max_port: 7470
+    proxy_port: 9006
+  - id: 3f7f8573
+    name: OnePlus_3T
+    adb_port: 5045
+    min_port: 7471
+    max_port: 7480
+    proxy_port: 9007
+  - id: ZX1G22B3M6
+    name: Nexus_6
+    adb_port: 5046
+    min_port: 7481
+    max_port: 7490
+    proxy_port: 9008
