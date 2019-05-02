@@ -35,7 +35,7 @@ else
     HARDWAREBUTTONS=true
 fi
 
-if [[ $isTablet ]]
+if [[ $isTablet && ${sum} -ge 50 ]]
 then
     DEVICETYPE='Tablet'
 else
@@ -77,12 +77,12 @@ cat << EndOfMessage
           "maxInstances": 1,
           "platform":"ANDROID",
           "deviceName": "${DEVICENAME}",
-	  "deviceType": "${DEVICETYPE}",
+	      "deviceType": "${DEVICETYPE}",
           "platformName":"ANDROID",
           "platformVersion":"${ANDROID_VERSION}",
           "udid": "${DEVICEUDID}",
-	  "adb_port": ${ADB_PORT},
-	  "proxy_port": ${PROXY_PORT},
+	      "adb_port": ${ADB_PORT},
+	      "proxy_port": ${PROXY_PORT},
           "vnc": "${STF_PUBLIC_HOST}:${MAX_PORT}",
           "automationName": "${AUTOMATION_NAME}"
         }
