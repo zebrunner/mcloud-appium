@@ -35,7 +35,7 @@ else
     HARDWAREBUTTONS=true
 fi
 
-if [[ $isTablet ]]
+if [[ $isTablet && ${sum} -ge 50 ]]
 then
     DEVICETYPE='Tablet'
 else
