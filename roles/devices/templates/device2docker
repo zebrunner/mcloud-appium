@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_IMAGE_ID=`docker images | grep 'qaprosoft/appium-device' " grep '1.12' | awk '{print($3)}'`
+DOCKER_IMAGE_ID=`docker images | grep 'qaprosoft/appium-device' | grep '1.12' | awk '{print($3)}'`
 CONTAINERS=( `docker ps --format '\{\{.Names\}\}' | grep device | cut -d '-' -f 2-` )
 CONNECTED_DEVICES=( `ls /dev/ | grep device | cut -d '-' -f 2-` )
 echo ACTION: $ACTION
