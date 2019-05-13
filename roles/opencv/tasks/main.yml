@@ -1,0 +1,4 @@
+---
+
+- name: Install "OpenCV" node.js package.
+  command: npm install --save opencv4nodejs@{{ opencv_version }} --prefix {{ opencv_install_location }} --unsafe-perm true

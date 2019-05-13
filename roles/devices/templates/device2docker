@@ -27,8 +27,10 @@ function create_container () {
 	--restart always \
 	--add-host {{ stf_public_host }}:{{ stf_private_host }} \
         -v /usr/lib/jvm:/usr/lib/jvm \
+        -v /usr/lib/x86_64-linux-gnu/libstdc++.so.6:/usr/lib/x86_64-linux-gnu/libstdc++.so.6 \
         -v {{ android_sdk_install_location }}:{{ android_sdk_install_location }} \
 	-v {{ appium_install_location }}/node_modules/appium:/opt/appium \
+        -v {{ opencv_install_location }}/node_modules:/opt/node_modules \
 	-v /opt/apk:/opt/apk \
         -v /home/build/tools/stage-infra/nginx:/opt/nginx \
         -e ANDROID_HOME={{ android_sdk_install_location }} -e DEVICENAME=$device_name -e DEVICEUDID=$device_udid \

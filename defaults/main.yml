@@ -41,6 +41,10 @@ docker_tmp_images_path: /tmp
 appium_install_location: /opt/appium
 appium_version: 1.12.1
 
+
+opencv_install_location: /opt
+opencv_version: 4.15.0
+
 selenoid_session_timeout_sec: 300
 selenoid_port: 4445
 
