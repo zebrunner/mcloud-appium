@@ -1,4 +1,4 @@
-## Ansible repository to setup infrastructure of running Appium tests on Android
+## Ansible script to setup infrastructure of running Appium tests on MCloud (Android)
 
 File `hosts` contains server addresses to setup
 
@@ -17,5 +17,5 @@ File `defaults/main.yml` contains main Ansible tasks
  *  router.yml - setup selenium-hub for devices
 
 #### Example of the setup server to work with emulators:
-`ansible-playbook -vvv -i hosts --user=ubuntu --extra-vars "ansible_sudo_pass=<pswd>" emulators.yml`
-`ansible-playbook -vvv -i hosts --user=ubuntu --extra-vars "ansible_sudo_pass=<pswd>" devices.yml`
+`ansible-playbook -vvv -i hosts emulators.yml`
+`ansible-playbook -vvv -i hosts devices.yml`
