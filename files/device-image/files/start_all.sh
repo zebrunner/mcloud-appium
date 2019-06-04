@@ -1,14 +1,27 @@
 #!/bin/bash
 
+#execute to print info in stdout
 . /opt/configgen.sh
+
+# generate json file
+/opt/configgen.sh > /opt/nodeconfig.json
 
 WEBSOCKIFY_CMD="/opt/websockify/run ${MAX_PORT} :5900"
 SOCKET_PROTOCOL=ws
+WEB_PROTOCOL=http
+
+# uninstall appium specific
+adb uninstall io.appium.uiautomator2.server.test
+adb uninstall io.appium.uiautomator2.server
+adb uninstall io.appium.settings
+adb uninstall io.appium.unlock
 
 if [ -f /opt/nginx/ssl/ssl.crt ] && [ /opt/nginx/ssl/ssl.key ]; then
     WEBSOCKIFY_CMD="/opt/websockify/run ${MAX_PORT} :5900 --ssl-only --cert /opt/nginx/ssl/ssl.crt --key /opt/nginx/ssl/ssl.key"
     SOCKET_PROTOCOL=wss
+    WEB_PROTOCOL=https
 fi
+
 
 ln -s /usr/lib/jvm/java-8-openjdk-amd64/bin/java /usr/bin/java \
     & /opt/configgen.sh > /opt/nodeconfig.json \
@@ -16,8 +29,8 @@ ln -s /usr/lib/jvm/java-8-openjdk-amd64/bin/java /usr/bin/java \
            --nodeconfig /opt/nodeconfig.json --automation-name $AUTOMATION_NAME \
     & $WEBSOCKIFY_CMD \
     & stf provider --name "$DEVICEUDID" --min-port=$MIN_PORT --max-port=$MAX_PORT \
-        --connect-sub tcp://$STF_PRIVATE_HOST:$STF_TCP_SUB_PORT --connect-push tcp://$STF_PRIVATE_HOST:$STF_TCP_PUB_PORT \
-        --group-timeout 3600 --public-ip $STF_PUBLIC_HOST --storage-url https://$STF_PUBLIC_HOST/ \
+        --connect-sub tcp://$STF_PRIVATE_HOST:$STF_TCP_SUB_PORT --connect-push tcp://$STF_PRIVATE_HOST:$STF_TCP_PUB_PORT --screen-jpeg-quality 40 \
+        --group-timeout 3600 --public-ip $STF_PUBLIC_HOST --storage-url $WEB_PROTOCOL://$STF_PUBLIC_HOST/ \
 	      --heartbeat-interval 10000 --vnc-initial-size 600x800 --vnc-port 5900 --no-cleanup --screen-ws-url-pattern "${SOCKET_PROTOCOL}://${STF_PUBLIC_HOST}/d/${STF_PRIVATE_HOST}/<%= serial %>/<%= publicPort %>/" &
 
 while true
