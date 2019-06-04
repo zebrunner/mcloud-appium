@@ -1,4 +1,4 @@
-## Ansible repository to setup infrastructure of running Appium tests on Android
+## Ansible script to setup infrastructure of running Appium tests on MCloud (Android)
 
 File `hosts` contains server addresses to setup
 
