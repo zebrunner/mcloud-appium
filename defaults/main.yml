@@ -35,6 +35,7 @@ android_device_versions:
   - 8.1
 
 docker_device_image_name: appium-device
+appium_device_image_version: 1.13
 docker_base_emulator_image_name: appium-emulator
 docker_tmp_images_path: /tmp
 
@@ -53,3 +54,4 @@ grid_router_users:
   - { login: user2, password: user2 }
 
 selenium_hub_port: 4444
+
