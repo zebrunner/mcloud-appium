@@ -55,3 +55,6 @@ grid_router_users:
 
 selenium_hub_port: 4444
 
+stf_private_host: 192.168.88.95
+stf_public_host: stage.qaprosoft.com
+
