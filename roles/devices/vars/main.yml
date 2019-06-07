@@ -1,6 +1,6 @@
 ---
-stf_private_host: {{ stf_private_host }}
-stf_public_host: {{ stf_public_host }}
+stf_private_host: 192.168.88.95
+stf_public_host: stage.qaprosoft.com
 stf_tcp_sub_port: 7250
 stf_tcp_pub_port: 7270
 selenium_hub_host: selenium-hub
