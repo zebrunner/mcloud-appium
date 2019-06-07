@@ -3,6 +3,10 @@
 - name: copy script to launch container with appium for device
   template: src=device2docker  dest=/usr/local/bin/ mode=755
 
+- name: remove backslash presence for .Name filter
+  shell: "sed -i.bak 's%\\{\\{.Names\\}\\}%{{.Names}}%g' /usr/local/bin/device2docker"
+
+
 - name: copy rules to launch script on connected device
   template: src=51-android.rules  dest=/etc/udev/rules.d/
 
