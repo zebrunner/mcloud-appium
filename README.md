@@ -17,5 +17,5 @@ File `defaults/main.yml` contains main Ansible tasks
  *  router.yml - setup selenium-hub for devices
 
 #### Example of the setup server to work with emulators:
-`ansible-playbook -vvv -i hosts emulators.yml`
-`ansible-playbook -vvv -i hosts devices.yml`
+`ansible-playbook -vvv -i hosts emulators.yml
+ansible-playbook -vvv -i hosts devices.yml`
