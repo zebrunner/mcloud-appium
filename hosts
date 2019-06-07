@@ -1,8 +1,8 @@
 [emulators_servers]
-localhost
+localhost ansible_connection=local
 
 [devices_servers]
-localhost
+localhost ansible_connection=local
 
 [grid_router_server]
-localhost
+localhost ansible_connection=local

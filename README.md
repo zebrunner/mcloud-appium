@@ -1,20 +1,21 @@
-## Ansible репозиторий для настройки инфраструктуры запуска Appium тестов под Android
+## Ansible script to setup infrastructure of running Appium tests on MCloud (Android)
 
-Файл `hosts` содержит адреса серверов для настройки
+File `hosts` contains server addresses to setup
 
-Файл `defaults/main.yml` содержит основные параметры Ansible задач
+File `defaults/main.yml` contains main Ansible tasks
 
-#### Основные роли:
- *  appium - настраивает appium с окружением
- *  devices - настраивает сервер, к которому будут подключаться реальные устройства
- *  docker - настраивает сервер для дальнейшей работы с docker
- *  emulators - настройка сервера с эмуляторами
- *  grid-router - настройка балансера для selenium хабов
+#### Main tasks:
+ *  appium - install shared appium with all required components
+ *  devices - setup server to which real devices will be connected
+ *  docker - install docker components
+ *  emulators - setup server to work with emulators
+ *  grid-router - setup selenium-hub
 
-#### Основные плейбуки:
- *  emulators.yml - настраивает сервера, готовые к запуску appium тестов на эмуляторах
- *  devices.yml - настраивает сервера, готовые к запуску appium тестов на реальных утройствах
- *  router.yml - настраивает балансер для объединения серверов
+#### Main playbooks:
+ *  emulators.yml - setup server(s) to work with emulators
+ *  devices.yml - setup server(s) to work with real devices
+ *  router.yml - setup selenium-hub for devices
 
-#### Пример настройки сервера с эмуляторами:
-`ansible-playbook -i hosts emulators.yml`
+#### Example of the setup server to work with emulators:
+`ansible-playbook -vvv -i hosts emulators.yml`
+`ansible-playbook -vvv -i hosts devices.yml`
