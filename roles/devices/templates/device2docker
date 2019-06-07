@@ -23,7 +23,7 @@ function create_container () {
     local proxy_port=`echo $1 | cut -d '-' -f 6`
     local symlink=/dev/device-$udid
     local port=`/usr/local/bin/device2port $udid`
-    docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net=nwinfra_default \
+    docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net=mcloud \
 	--restart always \
 	--add-host {{ stf_public_host }}:{{ stf_private_host }} \
         -v /usr/lib/jvm:/usr/lib/jvm \
@@ -31,7 +31,7 @@ function create_container () {
 	-v {{ appium_install_location }}/node_modules/appium:/opt/appium \
         -v {{ opencv_install_location }}/node_modules:/opt/node_modules \
 	-v /opt/apk:/opt/apk \
-        -v /home/build/tools/nw-infra/nginx:/opt/nginx \
+        -v {{ nginx_home }}:/opt/nginx \
         -e ANDROID_HOME={{ android_sdk_install_location }} -e DEVICENAME=$device_name -e DEVICEUDID=$device_udid \
 	-e PORT=$port -e ADB_PORT=$device_adb_port -e JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre \
 	-p $device_adb_port:5037 \

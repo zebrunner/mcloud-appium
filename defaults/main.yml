@@ -55,3 +55,6 @@ grid_router_users:
 
 selenium_hub_port: 4444
 
+nginx_home: /opt/nginx
+ssl_crt: ssl.crt
+ssl_key: ssl.key
