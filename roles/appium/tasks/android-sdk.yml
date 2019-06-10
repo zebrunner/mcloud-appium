@@ -38,4 +38,4 @@
   file: path={{ android_sdk_install_location }} recurse=yes mode=0755
 
 - name: Shutdown ADB if it is running
-  shell: "{{ android_sdk_install_location }}/platform-tools/adb kill-server"  
+  shell: "{{ android_sdk_install_location }}/platform-tools/adb kill-server"

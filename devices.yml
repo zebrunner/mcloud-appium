@@ -7,4 +7,5 @@
   roles:
     - docker
     - appium
+    - opencv
     - devices
