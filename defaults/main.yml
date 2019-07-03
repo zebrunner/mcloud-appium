@@ -35,7 +35,7 @@ android_device_versions:
   - 8.1
 
 docker_device_image_name: appium-device
-appium_device_image_version: 1.14
+appium_device_image_version: 1.15
 docker_base_emulator_image_name: appium-emulator
 docker_tmp_images_path: /tmp
 
