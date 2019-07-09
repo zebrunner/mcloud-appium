@@ -39,6 +39,19 @@ appium_device_image_version: 1.15
 docker_base_emulator_image_name: appium-emulator
 docker_tmp_images_path: /tmp
 
+
+#IMPORTANT: every time you upgrade appium version please make sute to patch manually roles/appium/templates/system-calls.js to return information about invalid device
+# for 1.13.0 add after line 369
+# 369 line:
+#          _logger.default.debug(`Running '${_this2.executable.path} ${(0, _shellQuote.quote)(args)}'`);
+#new one:
+#          const debugInfo = `[[[DEBUG info: '${_this2.executable.path} ${(0, _shellQuote.quote)(args)}']]]${process.env.NODE_ENV}`;
+# and 6-7 lines below return updated value
+#          return stdout;
+# change to
+#          return stdout + '\n' + debugInfo;
+
+
 appium_install_location: /opt/appium
 appium_version: 1.13.0
 
@@ -58,3 +71,6 @@ selenium_hub_port: 4444
 nginx_home: /opt/nginx
 ssl_crt: ssl.crt
 ssl_key: ssl.key
+
+# to fix "FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory" during video recording
+max_old_space_size_value: 8172

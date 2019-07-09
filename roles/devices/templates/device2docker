@@ -32,6 +32,7 @@ function create_container () {
         -v {{ opencv_install_location }}/node_modules:/opt/node_modules \
 	-v /opt/apk:/opt/apk \
         -v {{ nginx_home }}:/opt/nginx \
+        -e NODE_OPTIONS=--max_old_space_size={{ max_old_space_size_value }} \
         -e ANDROID_HOME={{ android_sdk_install_location }} -e DEVICENAME=$device_name -e DEVICEUDID=$device_udid \
 	-e PORT=$port -e ADB_PORT=$device_adb_port -e JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre \
 	-p $device_adb_port:5037 \
