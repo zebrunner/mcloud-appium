@@ -45,7 +45,7 @@ docker_tmp_images_path: /tmp
 # 369 line:
 #          _logger.default.debug(`Running '${_this2.executable.path} ${(0, _shellQuote.quote)(args)}'`);
 #new one:
-#          const debugInfo = `[[[DEBUG info: '${_this2.executable.path} ${(0, _shellQuote.quote)(args)}']]]${process.env.NODE_ENV}`;
+#	   const debugInfo = `[[[DEBUG info: ${_this2.executable.path} ${(0, _shellQuote.quote)(args)} --udid ${process.env.DEVICEUDID} --name ${process.env.DEVICENAME}]]]`;
 # and 6-7 lines below return updated value
 #          return stdout;
 # change to

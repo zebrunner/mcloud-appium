@@ -367,7 +367,7 @@ systemCallMethods.adbExec = function () {
           const args = _this2.executable.defaultArgs.concat(cmd);
 
           _logger.default.debug(`Running '${_this2.executable.path} ${(0, _shellQuote.quote)(args)}'`);
-          const debugInfo = `[[[DEBUG info: '${_this2.executable.path} ${(0, _shellQuote.quote)(args)}']]]${process.env.NODE_ENV}`;
+          const debugInfo = `[[[DEBUG info: ${_this2.executable.path} ${(0, _shellQuote.quote)(args)} --udid ${process.env.DEVICEUDID} --name ${process.env.DEVICENAME}]]]`;
 
           let _ref4 = yield (0, _teen_process.exec)(_this2.executable.path, args, opts),
               stdout = _ref4.stdout;
