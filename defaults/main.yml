@@ -1,8 +1,8 @@
 ---
-
+#https://androidsdkoffline.blogspot.com/p/android-sdk-tools.html
 android_sdk_download_location: https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
 android_sdk_install_location: /opt/android-sdk-linux
-android_build_tools: build-tools-27.0.3
+android_build_tools: build-tools-29.0.2
 android_sdk_versions:
   - 22
   - 23
@@ -10,6 +10,8 @@ android_sdk_versions:
   - 25
   - 26
   - 27
+  - 28
+  - 29
 android_emulator_skins:
   - HVGA
   - QVGA
@@ -33,6 +35,8 @@ android_device_versions:
   - 7.1.2
   - 8.0
   - 8.1
+  - 9.0
+  - 10.0
 
 docker_device_image_name: appium-device
 appium_device_image_version: 1.15
@@ -40,7 +44,8 @@ docker_base_emulator_image_name: appium-emulator
 docker_tmp_images_path: /tmp
 
 
-#IMPORTANT: every time you upgrade appium version please make sute to patch manually roles/appium/templates/system-calls.js to return information about invalid device
+# IMPORTANT: 
+# PATCH #1: every time you upgrade appium version please make sute to patch manually roles/appium/templates/system-calls.js to return information about invalid device
 # for 1.13.0 add after line 369
 # 369 line:
 #          _logger.default.debug(`Running '${_this2.executable.path} ${(0, _shellQuote.quote)(args)}'`);
