@@ -58,7 +58,7 @@ docker_tmp_images_path: /tmp
 
 
 appium_install_location: /opt/appium
-appium_version: 1.13.0
+appium_version: 1.15.0
 
 opencv_install_location: /opt
 opencv_version: 4.15.0

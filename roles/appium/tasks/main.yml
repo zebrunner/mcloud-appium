@@ -12,6 +12,9 @@
 - name: Install "Appium" node.js package.
   command: npm install appium@{{ appium_version }} --prefix {{ appium_install_location }} --unsafe-perm true
 
-- name: override appium-adb/build/lib/tools/system-calls.js file
-  copy: src="roles/appium/templates/system-calls.js" dest={{ appium_install_location }}/node_modules/appium/node_modules/appium-adb/build/lib/tools/system-calls.js
+#- name: override appium-adb/build/lib/tools/system-calls.js file
+#  copy: src="roles/appium/templates/system-calls.js" dest={{ appium_install_location }}/node_modules/appium/node_modules/appium-adb/build/lib/tools/system-calls.js
 
+# hotfix for screenrecord pidof functionality
+- name: override appium-adb/build/lib/tools/adb-commands.js file
+  copy: src="roles/appium/templates/adb-commands.js" dest={{ appium_install_location }}/node_modules/appium/node_modules/appium-adb/build/lib/tools/adb-commands.js
