@@ -45,16 +45,17 @@ docker_tmp_images_path: /tmp
 
 
 # IMPORTANT: 
-# PATCH #1: every time you upgrade appium version please make sute to patch manually roles/appium/templates/system-calls.js to return information about invalid device
-# for 1.13.0 add after line 369
-# 369 line:
-#          _logger.default.debug(`Running '${_this2.executable.path} ${(0, _shellQuote.quote)(args)}'`);
-#new one:
-#	   const debugInfo = `[[[DEBUG info: ${_this2.executable.path} ${(0, _shellQuote.quote)(args)} --udid ${process.env.DEVICEUDID} --name ${process.env.DEVICENAME}]]]`;
-# and 6-7 lines below return updated value
-#          return stdout;
-# change to
-#          return stdout + '\n' + debugInfo;
+# PATCH #1: every time you upgrade appium version please make sute to patch manually appium/node_modules/appium-adb/build/lib/tools/adb-commands.js to fix pidof identification on screenrecord
+# for 1.15.0 replace 774 and 777 lines using below
+# 774 line:
+#    const shellCommand = this._isPgrepAvailable ? this._canPgrepUseFullCmdLineSearch ? ['pgrep', '-f', _lodash.default.escapeRegExp(name)] : ['pgrep', `^${_lodash.default.escapeRegExp(name.slice(-15))}$`] : ['pidof', name];
+#updated one:
+#    const shellCommand = this._isPgrepAvailable ? this._canPgrepUseFullCmdLineSearch ? ['pgrep', '-f', _lodash.default.escapeRegExp(name)] : ['pgrep', `^${_lodash.default.escapeRegExp(name.slice(-15))}$`] : ['pgrep', name];
+#
+# 777 line:
+#      return (await this.shell(shellCommand)).split(/\s+/).map(x => parseInt(x, 10)).filter(x => _lodash.default.isInteger(x));
+# updated one:
+#      return (await this.shell(shellCommand)).split(" 5037")[0].split(/\s+/).map(x => parseInt(x, 10)).filter(x => _lodash.default.isInteger(x));
 
 
 appium_install_location: /opt/appium
