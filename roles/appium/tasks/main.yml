@@ -15,3 +15,7 @@
 # hotfix for screenrecord pidof functionality
 - name: override appium-adb/build/lib/tools/adb-commands.js file
   copy: src="roles/appium/templates/adb-commands.js" dest={{ appium_install_location }}/node_modules/appium/node_modules/appium-adb/build/lib/tools/adb-commands.js
+
+# exclude AppiumDriver.getStatus() call and response from debug log level
+- name: override appium-base-driver/build/lib/protocol/protocol.js file
+  copy: src="roles/appium/templates/protocol.js" dest={{ appium_install_location }}/node_modules/appium/node_modules/appium-base-driver/build/lib/protocol/protocol.js
