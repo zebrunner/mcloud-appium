@@ -39,7 +39,7 @@ android_device_versions:
   - 10.0
 
 docker_device_image_name: appium-device
-appium_device_image_version: 1.17
+appium_device_image_version: 1.18
 docker_base_emulator_image_name: appium-emulator
 docker_tmp_images_path: /tmp
 
@@ -57,13 +57,13 @@ docker_tmp_images_path: /tmp
 # updated one:
 #      return (await this.shell(shellCommand)).split(" 5037")[0].split(/\s+/).map(x => parseInt(x, 10)).filter(x => _lodash.default.isInteger(x));
 
-# PATCH #2 <appium>/node_modules/appium-base-driver/build/lib/protocol/protocol.js to avoid getStatus call and response logs and return to carina "DEBUG info" about problematic step
+# PATCH #2 <appium>/node_modules/appium/node_modules/appium-base-driver/build/lib/protocol/protocol.js to return to carina "DEBUG info" about problematic step
 # after 315 line add one more to update err.message
 #       let actualErr = err;
 #      err.message = `[[[DEBUG info: ${err.message} --udid ${process.env.DEVICEUDID} --name ${process.env.DEVICENAME}]]]`;
 
 appium_install_location: /opt/appium
-appium_version: 1.15.1
+appium_version: 1.16.0
 
 opencv_install_location: /opt
 opencv_version: 4.15.0
