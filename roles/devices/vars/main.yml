@@ -8,6 +8,7 @@ stf_public_host: stage.qaprosoft.com
 stf_tcp_sub_port: 7250
 stf_tcp_pub_port: 7270
 stf_docker_network: mcloud
+stf_rethinkdb: tcp://stage.qaprosoft.com:28015
 selenium_hub_host: selenium-hub
 selenium_hub_port: 4444
 
