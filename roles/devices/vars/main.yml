@@ -1,8 +1,13 @@
 ---
+# private ip or hostname of the current provider host. use the same as stf_private_host if main services and stf provider are located on the same computer
+stf_provider_host: 192.168.88.95
+# private ip or hostname of the server where main stf services are deployed
 stf_private_host: 192.168.88.95
+# public ip or hostname of the server where main stf services are deployed
 stf_public_host: stage.qaprosoft.com
 stf_tcp_sub_port: 7250
 stf_tcp_pub_port: 7270
+stf_docker_network: mcloud
 selenium_hub_host: selenium-hub
 selenium_hub_port: 4444
 

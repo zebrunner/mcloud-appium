@@ -23,7 +23,7 @@ function create_container () {
     local proxy_port=`echo $1 | cut -d '-' -f 6`
     local symlink=/dev/device-$udid
     local port=`/usr/local/bin/device2port $udid`
-    docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net=mcloud \
+    docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net={{ stf_docker_network }} \
 	--restart always \
 	--add-host {{ stf_public_host }}:{{ stf_private_host }} \
         -v /usr/lib/jvm:/usr/lib/jvm \
@@ -38,7 +38,7 @@ function create_container () {
 	-p $device_adb_port:5037 \
 	-p $stf_min_port-$stf_max_port:$stf_min_port-$stf_max_port \
 	-e MIN_PORT=$stf_min_port -e MAX_PORT=$stf_max_port \
-	-e STF_PRIVATE_HOST={{ stf_private_host }} -e STF_PUBLIC_HOST={{ stf_public_host }} \
+	-e STF_PRIVATE_HOST={{ stf_private_host }} -e STF_PUBLIC_HOST={{ stf_public_host }} -e STF_PROVIDER_HOST={{ stf_provider_host }} \
 	-e STF_TCP_SUB_PORT={{ stf_tcp_sub_port }} -e STF_TCP_PUB_PORT={{ stf_tcp_pub_port }} \
 	-e SELENIUM_HUB_HOST={{ selenium_hub_host }} -e SELENIUM_HUB_PORT={{ selenium_hub_port }} \
 	-e PROXY_PORT=$proxy_port \
