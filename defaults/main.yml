@@ -62,7 +62,7 @@ docker_tmp_images_path: /tmp
 #       let actualErr = err;
 #      err.message = `[[[DEBUG info: ${err.message} --udid ${process.env.DEVICEUDID} --name ${process.env.DEVICENAME}]]]`;
 
-appium_install_location: /opt/appium
+appium_install_location: /opt/appium/1.16.0
 appium_version: 1.16.0
 
 opencv_install_location: /opt
