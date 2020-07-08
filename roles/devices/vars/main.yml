@@ -10,7 +10,7 @@ stf_private_host: 192.168.88.95
 stf_tcp_sub_port: 7250
 stf_tcp_pub_port: 7270
 
-stf_docker_network: mcloud
+stf_docker_network: infra
 
 #tcp url to rethinkdb. Make sure to use valid hostname/ip if it is located on different host.
 stf_rethinkdb: tcp://rethinkdb:28015
