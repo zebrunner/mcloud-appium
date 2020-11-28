@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_IMAGE_ID=`docker images | grep 'qaprosoft/appium-device' | grep '{{ appium_device_image_version }}' | awk '{print($3)}'`
+DOCKER_IMAGE_ID=`docker images | grep 'zebrunner/{{ docker_device_image_name }}' | grep '{{ android_device_image_version }}' | awk '{print($3)}'`
 CONTAINERS=( `docker ps --format '{{ '{{' }}.Names{{ '}}' }}' | grep device | cut -d '-' -f 2-` )
 CONNECTED_DEVICES=( `ls /dev/ | grep device | cut -d '-' -f 2-` )
 echo ACTION: $ACTION
@@ -25,17 +25,18 @@ function create_container () {
     local port=`/usr/local/bin/device2port $udid`
     #TODO: add smart --add-host appending only if public and private addresses are different
     docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net={{ stf_docker_network }} \
+	--health-start-period 60s \
 	--restart always \
 	--add-host {{ stf_public_host }}:{{ stf_private_host }} \
         --add-host {{ stf_provider_public_host }}:{{ stf_provider_private_host }} \
-        -v /usr/lib/jvm:/usr/lib/jvm \
-        -v {{ android_sdk_install_location }}:{{ android_sdk_install_location }} \
-	-v {{ appium_install_location }}/node_modules/appium:/opt/appium \
+        -v android-sdk-linux-volume:{{ android_sdk_install_location }} \
+	-e ANDROID_HOME={{ android_sdk_install_location }} \
+	-v appium-{{ appium_version }}-volume:/opt/appium \
         -v {{ opencv_install_location }}/node_modules:/opt/node_modules \
 	-v /opt/apk:/opt/apk \
         -v {{ nginx_home }}:/opt/nginx \
         -e NODE_OPTIONS=--max_old_space_size={{ max_old_space_size_value }} \
-        -e ANDROID_HOME={{ android_sdk_install_location }} -e DEVICENAME=$device_name -e DEVICEUDID=$device_udid \
+        -e DEVICENAME=$device_name -e DEVICEUDID=$device_udid \
 	-e PORT=$port -e ADB_PORT=$device_adb_port -e JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre \
 	-p $device_adb_port:5037 \
 	-p $stf_min_port-$stf_max_port:$stf_min_port-$stf_max_port \

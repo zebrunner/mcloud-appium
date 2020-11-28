@@ -2,7 +2,7 @@
 #https://androidsdkoffline.blogspot.com/p/android-sdk-tools.html
 android_sdk_download_location: https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
 android_sdk_install_location: /opt/android-sdk-linux
-android_build_tools: build-tools-29.0.2
+android_build_tools: build-tools-29.0.3
 android_sdk_versions:
   - 22
   - 23
@@ -12,6 +12,7 @@ android_sdk_versions:
   - 27
   - 28
   - 29
+  - 30
 android_emulator_skins:
   - HVGA
   - QVGA
@@ -37,9 +38,10 @@ android_device_versions:
   - 8.1
   - 9.0
   - 10.0
+  - 11.0
 
-docker_device_image_name: appium-device
-appium_device_image_version: 1.19.0
+docker_device_image_name: android-device
+android_device_image_version: 1.0-beta1
 docker_base_emulator_image_name: appium-emulator
 docker_tmp_images_path: /tmp
 
