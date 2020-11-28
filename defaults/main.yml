@@ -1,7 +1,8 @@
 ---
 #https://androidsdkoffline.blogspot.com/p/android-sdk-tools.html
 android_sdk_download_location: https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
-android_sdk_install_location: /opt/android-sdk-linux
+#android-sdk-linux can't be renamed as it is existing folder inside above archive
+android_sdk_install_location: /opt/mcloud/android-sdk-linux
 android_build_tools: build-tools-29.0.3
 android_sdk_versions:
   - 22
@@ -64,11 +65,8 @@ docker_tmp_images_path: /tmp
 #       let actualErr = err;
 #      err.message = `[[[DEBUG info: ${err.message} --udid ${process.env.DEVICEUDID} --name ${process.env.DEVICENAME}]]]`;
 
-appium_install_location: /opt/appium/1.19.0
+appium_install_location: /opt/mcloud/appium/1.19.0
 appium_version: 1.19.0
-
-opencv_install_location: /opt
-opencv_version: 4.15.0
 
 selenoid_session_timeout_sec: 300
 selenoid_port: 4445
@@ -80,9 +78,13 @@ grid_router_users:
 
 selenium_hub_port: 4444
 
-nginx_home: /opt/nginx
+nginx_home: /opt/mcloud/nginx
 ssl_crt: ssl.crt
 ssl_key: ssl.key
 
 # to fix "FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory" during video recording
 max_old_space_size_value: 8172
+
+opencv_install_location: /opt/opencv
+opencv_version: 4.15.0
+
