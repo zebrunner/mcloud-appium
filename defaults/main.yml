@@ -68,16 +68,6 @@ docker_tmp_images_path: /tmp
 appium_install_location: /opt/mcloud/appium/1.19.0
 appium_version: 1.19.0
 
-selenoid_session_timeout_sec: 300
-selenoid_port: 4445
-
-grid_router_location: /etc/grid-router
-grid_router_users:
-  - { login: user1, password: user1 }
-  - { login: user2, password: user2 }
-
-selenium_hub_port: 4444
-
 nginx_home: /opt/mcloud/nginx
 ssl_crt: ssl.crt
 ssl_key: ssl.key
@@ -86,5 +76,6 @@ ssl_key: ssl.key
 max_old_space_size_value: 8172
 
 opencv_install_location: /opt/opencv
+#opencv_version: 5.6.0
 opencv_version: 4.15.0
 
