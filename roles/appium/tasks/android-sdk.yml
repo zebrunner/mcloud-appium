@@ -6,13 +6,13 @@
     dest: /tmp/sdk.zip
     validate_certs: no
 
-#- name: Create Android SDK folder
-#  file:
-#    path: "{{ android_sdk_install_location }}"
-#    state: directory 
+- name: Create Android SDK folder
+  file:
+    path: "{{ android_sdk_install_location }}"
+    state: directory 
   
 - name: Extract Android SDK tools
-  unarchive: src=/tmp/sdk.zip dest=/opt copy=no
+  unarchive: src=/tmp/sdk.zip dest=/opt/mcloud copy=no
 
 - name: Set system wide PATH to contain Android SDK tools
   lineinfile: dest=/etc/environment regexp=^PATH line='PATH="/usr/local/sbin:/usr/local/bin:{{ android_sdk_install_location }}/platform-tools:{{ android_sdk_install_location }}/tools:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"'
@@ -26,16 +26,29 @@
     - platform-tools
     - "{{ android_build_tools }}"
 
-- name: Install platforms
-  shell: echo y | "{{ android_sdk_install_location }}"/tools/android update sdk --filter android-{{ item }} --no-ui -a --force
-  with_items: "{{ android_sdk_versions }}"
+#- name: Install platforms
+#  shell: echo y | "{{ android_sdk_install_location }}"/tools/android update sdk --filter android-{{ item }} --no-ui -a --force
+#  with_items: "{{ android_sdk_versions }}"
 
 #- name: Install system images
 #  shell: echo y | "{{ android_sdk_install_location }}"/tools/android update sdk --filter sys-img-x86-android-{{ item }} --no-ui -a --force
 #  with_items: "{{ android_sdk_versions }}"
 
-- name: Change permissions on SDK tools
-  file: path={{ android_sdk_install_location }} recurse=yes mode=0755
+- name: Remove useless content
+  shell: rm -rf "{{ android_sdk_install_location }}"/{{ item }}
+  with_items:
+    - add-ons
+    - platforms
+    - SDK\ Readme.txt
+    - temp
+    - tools
+
+#TODO: think about 1000:1000 as default owner
+- name: Change ownership
+  shell: chown -R root:root "{{ android_sdk_install_location }}"
+
+#- name: Change permissions on SDK tools
+#  file: path={{ android_sdk_install_location }} recurse=yes mode=0755
 
 - name: Shutdown ADB if it is running
   shell: "{{ android_sdk_install_location }}/platform-tools/adb kill-server"
