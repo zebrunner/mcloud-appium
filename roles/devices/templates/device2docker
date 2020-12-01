@@ -24,7 +24,6 @@ function create_container () {
     local symlink=/dev/device-$udid
     local port=`/usr/local/bin/device2port $udid`
 
-    local appiumVolume=" -v mcloud-appium-volume:/opt/mcloud "
     local opnecvVolume=""
     if [[ -d {{ opencv_install_location }}/node_modules ]]; then
       opencvVolume=" -v {{ opencv_install_location }}/node_modules:/opt/node_modules "
@@ -37,7 +36,8 @@ function create_container () {
 
     docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net={{ stf_docker_network }} \
 	--health-start-period 60s \
-	--restart always $appiumVolume $opencvVolume $addedHost \
+	--restart always \
+	-v mcloud-appium-volume:/opt/mcloud $opencvVolume $addedHost \
 	-e ANDROID_HOME={{ android_sdk_install_location }} \
 	-v /opt/apk:/opt/apk \
         -v {{ nginx_home }}:/opt/nginx \

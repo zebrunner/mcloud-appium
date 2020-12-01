@@ -21,5 +21,5 @@
   copy: src="roles/appium/templates/protocol.js" dest={{ appium_install_location }}/node_modules/appium/node_modules/appium-base-driver/build/lib/protocol/protocol.js
 
 - name: Archive MCloud data
-  shell: tar -czvf mcloud.tar.gz /opt/mcloud
+  shell: tar -czvf mcloud-appium.tar.gz /opt/mcloud
 
