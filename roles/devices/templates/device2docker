@@ -23,16 +23,22 @@ function create_container () {
     local proxy_port=`echo $1 | cut -d '-' -f 6`
     local symlink=/dev/device-$udid
     local port=`/usr/local/bin/device2port $udid`
-    #TODO: add smart --add-host appending only if public and private addresses are different
+
+    local appiumVolume=" -v mcloud-appium-volume:/opt/mcloud "
+    local opnecvVolume=""
+    if [[ -d {{ opencv_install_location }}/node_modules ]]; then
+      opencvVolume=" -v {{ opencv_install_location }}/node_modules:/opt/node_modules "
+    fi
+
+    local addedHost=" --add-host {{ stf_public_host }}:{{ stf_private_host }} "
+    if [[ "${stf_public_host}" != "${stf_provider_public_host}" && "${stf_private_host}" != "${stf_provider_private_host}" ]]; then
+      addedHost=" --add-host {{ stf_public_host }}:{{ stf_private_host }} --add-host {{ stf_provider_public_host }}:{{ stf_provider_private_host }} "
+    fi 
+
     docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net={{ stf_docker_network }} \
 	--health-start-period 60s \
-	--restart always \
-	--add-host {{ stf_public_host }}:{{ stf_private_host }} \
-        --add-host {{ stf_provider_public_host }}:{{ stf_provider_private_host }} \
-        -v android-sdk-linux-volume:{{ android_sdk_install_location }} \
+	--restart always $appiumVolume $opencvVolume $addedHost \
 	-e ANDROID_HOME={{ android_sdk_install_location }} \
-	-v appium-{{ appium_version }}-volume:/opt/appium \
-        -v {{ opencv_install_location }}/node_modules:/opt/node_modules \
 	-v /opt/apk:/opt/apk \
         -v {{ nginx_home }}:/opt/nginx \
         -e NODE_OPTIONS=--max_old_space_size={{ max_old_space_size_value }} \
