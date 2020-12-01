@@ -1,0 +1,12 @@
+---
+
+- name: Download mcloud.tar.gz from public zebrunner-ce AWS S3
+  shell: wget s3://zebrunner-ce/mcloud/latest/mcloud.tar.gz . 
+
+- name: Remove existing mcloud-appium-volume
+  shell: docker volume rm -f mcloud-appium-volume
+
+- name: Generate docker volume using mcloud.tar.gz archive
+  shell: docker run --rm -v $(pwd)/mcloud.tar.gz:/var/tmp/mcloud.tar.gz -v mcloud-appium-volume:/opt.mcloud "ubuntu" bash -c "cd / && tar -xzvf /var/tmp/mcloud.tar.gz"
+
+

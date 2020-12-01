@@ -6,3 +6,5 @@
     - defaults/main.yml
   roles:
     - appium
+    - awscli
+    - upload

@@ -6,6 +6,6 @@
     - defaults/main.yml
   roles:
     - docker
-    - appium
-    - opencv
+    - download
+#    - opencv
     - devices
