@@ -3,10 +3,7 @@
 - name: Download mcloud.tar.gz from public zebrunner-ce AWS S3
   get_url: url=https://zebrunner-ce.s3.amazonaws.com/mcloud/latest/mcloud-appium.tar.gz dest=.
 
-- name: Remove existing mcloud-appium-volume
-  shell: docker volume rm -f mcloud-appium-volume
-
 - name: Generate docker volume using mcloud.tar.gz archive
-  shell: docker run --rm -v $(pwd)/mcloud-appium.tar.gz:/var/tmp/mcloud-appium.tar.gz -v mcloud-appium-volume:/opt/mcloud "ubuntu:16.04" bash -c "cd / && tar -xzvf /var/tmp/mcloud-appium.tar.gz"
+  shell: docker run --rm -v $(pwd)/mcloud-appium.tar.gz:/var/tmp/mcloud-appium.tar.gz -v mcloud-appium-volume:/opt/mcloud "ubuntu:16.04" bash -c "rm -rf /opt/mcloud/* && cd / && tar -xzvf /var/tmp/mcloud-appium.tar.gz"
 
 
