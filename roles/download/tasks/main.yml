@@ -1,7 +1,7 @@
 ---
 
 - name: Download mcloud.tar.gz from public zebrunner-ce AWS S3
-  shell: wget s3://zebrunner-ce/mcloud/latest/mcloud-appium.tar.gz . 
+  get_url: url=https://zebrunner-ce.s3.amazonaws.com/mcloud/latest/mcloud-appium.tar.gz dest=.
 
 - name: Remove existing mcloud-appium-volume
   shell: docker volume rm -f mcloud-appium-volume
