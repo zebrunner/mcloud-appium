@@ -38,7 +38,6 @@ function create_container () {
 	--health-start-period 60s \
 	--restart always \
 	-v mcloud-appium-volume:/opt/mcloud $opencvVolume $addedHost \
-	-e ANDROID_HOME={{ android_sdk_install_location }} \
 	-v /opt/apk:/opt/apk \
         -v {{ nginx_home }}:/opt/nginx \
         -e NODE_OPTIONS=--max_old_space_size={{ max_old_space_size_value }} \
