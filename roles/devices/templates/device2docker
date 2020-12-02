@@ -38,8 +38,8 @@ function create_container () {
 	--health-start-period 60s \
 	--restart always \
 	-v mcloud-appium-volume:/opt/mcloud $opencvVolume $addedHost \
+	-v mcloud-key-volume:/root/.android \
 	-v /opt/apk:/opt/apk \
-        -v {{ nginx_home }}:/opt/nginx \
         -e NODE_OPTIONS=--max_old_space_size={{ max_old_space_size_value }} \
         -e DEVICENAME=$device_name -e DEVICEUDID=$device_udid \
 	-e PORT=$port -e ADB_PORT=$device_adb_port -e JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre \
