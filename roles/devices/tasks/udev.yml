@@ -6,8 +6,8 @@
 - name: copy rules to launch script on connected device
   template: src=51-android.rules  dest=/etc/udev/rules.d/
 
-- name: copy script for get port by device id
-  template: src=device2port  dest=/usr/local/bin/ mode=755
+- name: copy devices details
+  template: src=devices.txt  dest=/usr/local/bin/
 
 - name: restart udev
   command: udevadm control --reload

@@ -42,10 +42,7 @@ android_device_versions:
   - 11.0
 
 docker_device_image_name: android-device
-android_device_image_version: 1.0-beta1
-docker_base_emulator_image_name: appium-emulator
-docker_tmp_images_path: /tmp
-
+android_device_image_version: 1.0
 
 # IMPORTANT: every time you upgrade appium version please make sure to patch manually
 # PATCH #1: <appium>/node_modules/appium-adb/build/lib/tools/adb-commands.js to fix pidof identification on screenrecord

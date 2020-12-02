@@ -7,42 +7,53 @@ echo ACTION: $ACTION
 
 
 function delete_container () {
-    local udid=$1
-    local container=`docker ps -a | grep $udid | sed 's/^\([a-z0-9]*\).*$/\1/g'`
-#    docker stop $container || echo 'can not stop container'
+    local device=$1
+    local container=`docker ps -a | grep $device | sed 's/^\([a-z0-9]*\).*$/\1/g'`
     docker rm $container -f || echo 'already deleted'
 }
 
 function create_container () {
-    local udid=$1
-    local device_udid=`echo $1 | cut -d '-' -f 1`
-    local device_name=`echo $1 | cut -d '-' -f 2`
-    local device_adb_port=`echo $1 | cut -d '-' -f 3`
-    local stf_min_port=`echo $1 | cut -d '-' -f 4`
-    local stf_max_port=`echo $1 | cut -d '-' -f 5`
-    local proxy_port=`echo $1 | cut -d '-' -f 6`
-    local symlink=/dev/device-$udid
-    local port=`/usr/local/bin/device2port $udid`
+    local device=$1
+    echo "device: $device"
+
+    local udid=`echo $device | cut -d '-' -f 1`
+    echo "udid: $udid"
+
+    local devices=/usr/local/bin/devices.txt
+    local device_name=`cat ${devices} | grep "$udid" | cut -d '|' -f 1`
+    echo "device_name: $device_name"
+
+    local device_adb_port=`cat ${devices} | grep "$udid" | cut -d '|' -f 3`
+    echo "device_adb_port: $device_adb_port"
+
+    local stf_min_port=`cat ${devices} | grep "$udid" | cut -d '|' -f 4`
+    echo "stf_min_port: $stf_min_port"
+
+    local stf_max_port=`cat ${devices} | grep "$udid" | cut -d '|' -f 5`
+    echo "stf_max_port: $stf_max_port"
+
+    local proxy_port=`cat ${devices} | grep "$udid" | cut -d '|' -f 6`
+    echo "proxy_port: $proxy_port"
+
+    local symlink=/dev/device-$device
 
     local opnecvVolume=""
     if [[ -d {{ opencv_install_location }}/node_modules ]]; then
       opencvVolume=" -v {{ opencv_install_location }}/node_modules:/opt/node_modules "
     fi
 
-    local addedHost=" --add-host {{ stf_public_host }}:{{ stf_private_host }} "
-    if [[ "${stf_public_host}" != "${stf_provider_public_host}" && "${stf_private_host}" != "${stf_provider_private_host}" ]]; then
-      addedHost=" --add-host {{ stf_public_host }}:{{ stf_private_host }} --add-host {{ stf_provider_public_host }}:{{ stf_provider_private_host }} "
-    fi 
+    #TODO: think about removal hosts duplicates
+    local addedHost=" --add-host {{ stf_public_host }}:{{ stf_private_host }} --add-host {{ stf_provider_public_host }}:{{ stf_provider_private_host }} "
 
-    docker run -d --name "device-$udid" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net={{ stf_docker_network }} \
+    docker run -d --name "device-$device" --log-opt max-size=50m -m 1g --device=$symlink:/dev/bus/usb/003/011 --net={{ stf_docker_network }} \
 	--health-start-period 60s \
 	--restart always \
 	-v mcloud-appium-volume:/opt/mcloud $opencvVolume $addedHost \
 	-v mcloud-key-volume:/root/.android \
 	-v /opt/apk:/opt/apk \
         -e NODE_OPTIONS=--max_old_space_size={{ max_old_space_size_value }} \
-        -e DEVICENAME=$device_name -e DEVICEUDID=$device_udid \
-	-e PORT=$port -e ADB_PORT=$device_adb_port \
+        -e DEVICENAME=$device_name -e DEVICEUDID=$udid \
+	-e ADB_PORT=$device_adb_port \
 	-p $device_adb_port:5037 \
 	-p $stf_min_port-$stf_max_port:$stf_min_port-$stf_max_port \
 	-e MIN_PORT=$stf_min_port \
@@ -57,12 +68,12 @@ function create_container () {
 }
 
 function update_symlink () {
-    local udid=$1
-    local device_path=`ls -l /dev/ | grep $udid | sed 's/^.*> \(.*\)$/\1/g'`
+    local device=$1
+    local device_path=`ls -l /dev/ | grep $device | sed 's/^.*> \(.*\)$/\1/g'`
     if [[ $device_path != /dev* ]]
     then
-        local symlink=/dev/device-$udid
-        local temp_symlink=/dev/temp-$udid
+        local symlink=/dev/device-$device
+        local temp_symlink=/dev/temp-$device
         device_path=/dev/$device_path
         setfacl -m u:$USER:rw $device_path
         ln -s $device_path $temp_symlink
