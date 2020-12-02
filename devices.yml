@@ -7,5 +7,4 @@
   roles:
     - docker
     - download
-#    - opencv
     - devices
