@@ -42,7 +42,7 @@ function create_container () {
 	-v /opt/apk:/opt/apk \
         -e NODE_OPTIONS=--max_old_space_size={{ max_old_space_size_value }} \
         -e DEVICENAME=$device_name -e DEVICEUDID=$device_udid \
-	-e PORT=$port -e ADB_PORT=$device_adb_port -e JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre \
+	-e PORT=$port -e ADB_PORT=$device_adb_port \
 	-p $device_adb_port:5037 \
 	-p $stf_min_port-$stf_max_port:$stf_min_port-$stf_max_port \
 	-e MIN_PORT=$stf_min_port \
