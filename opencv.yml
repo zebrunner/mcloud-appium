@@ -1,6 +1,6 @@
 ---
 
-- hosts: devices_servers
+- hosts: localhost
   become: true
   vars_files:
     - defaults/main.yml
