@@ -1,9 +1,10 @@
 ---
 
-- hosts: grid_router_server
+- hosts: localhost
   become: true
   vars_files:
     - defaults/main.yml
   roles:
-#    - docker
-    - grid-router
+    - appium
+    - awscli
+    - upload
