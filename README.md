@@ -1,5 +1,7 @@
-## Ansible script to setup appium and opencv components for MCloud (Android)
+## Ansible script to prepare Appium and OpenCV components for MCloud (Android)
 
+We have to run it at once for porting new version of Appium/OpenCV and publish manually to public s3 storage
+> make sure to provide public access after redownload for appium.tar.gz and/or opencv.tar.gz 
 File `defaults/main.yml` contains main Ansible variables
 
 #### Main tasks:
