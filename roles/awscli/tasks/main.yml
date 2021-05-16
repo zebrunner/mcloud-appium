@@ -1,8 +1,0 @@
----
-
-- name: Ensure awscli is installed.
-  apt:
-    name: awscli
-    state: present
-
-

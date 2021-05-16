@@ -301,7 +301,7 @@ function buildHandler(app, method, path, spec, driver, isSessCmd) {
       }
     } catch (err) {
       let actualErr = err;
-      err.message = `[[[DEBUG info: ${err.message} --udid ${process.env.DEVICEUDID} --name ${process.env.DEVICENAME}]]]`;
+      err.message = `[[[DEBUG info: ${err.message} --udid ${process.env.DEVICE_UDID} --name ${process.env.STF_PROVIDER_DEVICE_NAME}]]]`;
       currentProtocol = currentProtocol || extractProtocol(driver, req.params.sessionId || newSessionId);
       let errMsg = err.stacktrace || err.stack;
 

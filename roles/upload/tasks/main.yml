@@ -1,5 +1,0 @@
----
-
-#- name: Upload mcloud.tar.gz to AWS S3 public bucket
-#  shell: tar -czvf mcloud.tar.gz /opt/mcloud
-
