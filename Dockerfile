@@ -40,7 +40,7 @@ RUN curl -O ${ANDROID_SDK_DOWNLOAD_LOCATION} \
     && tar -xf ${ANDROID_SDK_ARCHIVE} -C ${MCLOUD_HOME} \
     && rm -f ${ANDROID_SDK_ARCHIVE} \
     && echo y | ${ANDROID_HOME}/tools/android update sdk --filter platform-tools,${ANDROID_BUILD_TOOLS} --no-ui -a --force \
-    && rm -rf ${ANDROID_HOME}/add-ons ${ANDROID_HOME}/platforms ${ANDROID_HOME}/SDK\ Readme.txt ${ANDROID_HOME}/temp ${ANDROID_HOME}/tools
+    && rm -rf ${ANDROID_HOME}/add-ons ${ANDROID_HOME}/platforms ${ANDROID_HOME}/SDK\ Readme.txt ${ANDROID_HOME}/temp
     
 RUN npm install appium@${APPIUM_VERSION} opencv4nodejs@${OPENCV_VERSION} --prefix ${APPIUM_HOME} --unsafe-perm true
 
