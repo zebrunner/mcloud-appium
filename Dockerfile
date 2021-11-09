@@ -43,6 +43,7 @@ RUN curl -O ${ANDROID_SDK_DOWNLOAD_LOCATION} \
     && rm -f ${ANDROID_SDK_ARCHIVE} \
     && ${ANDROID_HOME}/tools/bin/sdkmanager --list \
     && echo y | ${ANDROID_HOME}/tools/bin/sdkmanager --install "build-tools;${ANDROID_BUILD_TOOLS}" \
+    && echo y | ${ANDROID_HOME}/tools/bin/sdkmanager --install "platform-tools" \
     && rm -rf ${ANDROID_HOME}/add-ons ${ANDROID_HOME}/platforms ${ANDROID_HOME}/SDK\ Readme.txt ${ANDROID_HOME}/temp ${ANDROID_HOME}/tools
     
 RUN npm install appium@${APPIUM_VERSION} opencv4nodejs@${OPENCV_VERSION} --prefix ${APPIUM_HOME} --unsafe-perm true
