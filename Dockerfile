@@ -22,7 +22,8 @@ RUN apt-get update \
 	git \
 	cmake \
 	build-essential \
-	openjdk-8-jdk
+	openjdk-8-jdk \
+	unzip
 
 RUN export
 
