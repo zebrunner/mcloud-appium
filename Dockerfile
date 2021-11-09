@@ -7,9 +7,10 @@ ENV ANDROID_HOME=${MCLOUD_HOME}/android-sdk-linux
 ENV PATH=${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/build-tools:$PATH
 
 
-ENV ANDROID_SDK_ARCHIVE=android-sdk_r24.4.1-linux.tgz
-ENV ANDROID_SDK_DOWNLOAD_LOCATION=https://dl.google.com/android/${ANDROID_SDK_ARCHIVE}
-ENV ANDROID_BUILD_TOOLS=build-tools-30.0.2
+# available SDK Tools: https://androidsdkmanager.azurewebsites.net/SDKTools
+ENV ANDROID_SDK_ARCHIVE=sdk-tools-linux-4333796.zip
+ENV ANDROID_SDK_DOWNLOAD_LOCATION=https://dl.google.com/android/repository/${ANDROID_SDK_ARCHIVE}
+ENV ANDROID_BUILD_TOOLS=32.0.0-rc1
 
 ENV APPIUM_VERSION=1.19.0
 ENV APPIUM_HOME=${MCLOUD_HOME}/appium
@@ -37,9 +38,10 @@ ENV JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre"
 # Install and upgrade Android SDK tools
 RUN curl -O ${ANDROID_SDK_DOWNLOAD_LOCATION} \
     && mkdir -p ${MCLOUD_HOME} \
-    && tar -xf ${ANDROID_SDK_ARCHIVE} -C ${MCLOUD_HOME} \
+    && unzip ${ANDROID_SDK_ARCHIVE} -d ${ANDROID_HOME} \
     && rm -f ${ANDROID_SDK_ARCHIVE} \
-    && echo y | ${ANDROID_HOME}/tools/android update sdk --filter "platform-tools,${ANDROID_BUILD_TOOLS}" --no-ui -a --force \
+    && ${ANDROID_HOME}/tools/bin/sdkmanager --list \
+    && echo y | ${ANDROID_HOME}/tools/bin/sdkmanager --install "build-tools;${ANDROID_BUILD_TOOLS}" \
     && rm -rf ${ANDROID_HOME}/add-ons ${ANDROID_HOME}/platforms ${ANDROID_HOME}/SDK\ Readme.txt ${ANDROID_HOME}/temp ${ANDROID_HOME}/tools
     
 RUN npm install appium@${APPIUM_VERSION} opencv4nodejs@${OPENCV_VERSION} --prefix ${APPIUM_HOME} --unsafe-perm true
