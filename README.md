@@ -1,3 +1,6 @@
+DEPRECATED
+New repo: https://github.com/zebrunner/appium
+
 ## mcloud-appium
 
 Script to prepare Appium with opencv4nodejs component for MCloud (Android)
